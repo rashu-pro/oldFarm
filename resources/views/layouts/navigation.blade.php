@@ -3,7 +3,7 @@
     <div class="container">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between">
-            <div class="flex">
+            <div class="flex align-items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">

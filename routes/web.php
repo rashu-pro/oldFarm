@@ -21,6 +21,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/dashboard-vegetables', function () {
+    return view('dashboard-vegetables');
+})->middleware(['auth', 'verified'])->name('dashboard-vegetables');
+
+Route::get('/dashboard-animals', function () {
+    return view('dashboard-animals');
+})->middleware(['auth', 'verified'])->name('dashboard-animals');
+
 Route::get('/dashboard-demo', function(){
     return view('dashboard-demo');
 });

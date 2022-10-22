@@ -39,29 +39,28 @@
                                 <div class="dashboard-item-box pb-2">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="dashboard-item border-2 border-solid border-blue-800 rounded-md">
-                                                <img src="{{ url('images/fruit.png') }}">
-                                                <h2 class="text-blue-700">Fruits</h2>
-                                            </div>
-
-                                            <div class="text-center pt-2">
-                                                <img src="{{ url('images/down-arrow_64.png') }}" alt="" class="inline-block w-12">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <a href="{{ route('dashboard-vegetables') }}">
+                                            <a href="{{ route('dashboard') }}">
                                                 <div class="dashboard-item border-2 border-gray-400 rounded-md">
-                                                    <img src="{{ url('images/vegetable.png') }}">
-                                                    <h2 class="text-gray-600">Vegetables</h2>
+                                                    <img src="images/fruit.png">
+                                                    <h2 class="text-gray-600">Fruits</h2>
                                                 </div>
                                             </a>
                                         </div>
 
                                         <div class="col-md-4">
+                                            <div class="dashboard-item border-2 border-solid border-blue-800 rounded-md">
+                                                <img src="images/vegetable.png">
+                                                <h2 class="text-blue-800">Vegetables</h2>
+                                            </div>
+                                            <div class="text-center pt-2">
+                                                <img src="images/down-arrow_64.png" alt="" class="inline-block w-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
                                             <a href="{{ route('dashboard-animals') }}">
                                                 <div class="dashboard-item border-2 border-gray-400 rounded-md">
-                                                    <img src="{{ url('images/cow.png') }}">
+                                                    <img src="images/cow.png">
                                                     <h2 class="text-gray-600">Animal</h2>
                                                 </div>
                                             </a>
@@ -103,10 +102,9 @@
                                                             <select name="pick-item"
                                                                     class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                                                 <option>Choose item</option>
-                                                                <option value="apple" data-name="Apple - Autumn" data-image-name="apple.png" data-unitprice="250">Apple</option>
-                                                                <option value="strawberry" data-name="Strawberry - winter" data-image-name="strawberry.png" data-unitprice="350">Strawberry</option>
-                                                                <option value="banana" data-name="Banana - Summer" data-image-name="banana.png" data-unitprice="200">Banana</option>
-                                                                <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png" data-unitprice="300">Orange</option>
+                                                                <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png" data-unitprice="120">Carrots</option>
+                                                                <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png" data-unitprice="180">capsicum</option>
+                                                                <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png" data-unitprice="200">Broccoli</option>
                                                             </select>
                                                         </div>
 
@@ -148,10 +146,9 @@
                                                             <select name="pick-item"
                                                                     class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                                                 <option>Choose item</option>
-                                                                <option value="apple" data-name="Apple - Autumn" data-image-name="apple.png" data-unitprice="250">Apple</option>
-                                                                <option value="strawberry" data-name="Strawberry - winter" data-image-name="strawberry.png" data-unitprice="350">Strawberry</option>
-                                                                <option value="banana" data-name="Banana - Summer" data-image-name="banana.png" data-unitprice="200">Banana</option>
-                                                                <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png" data-unitprice="300">Orange</option>
+                                                                <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png" data-unitprice="120">Carrots</option>
+                                                                <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png" data-unitprice="180">capsicum</option>
+                                                                <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png" data-unitprice="200">Broccoli</option>
                                                             </select>
                                                         </div>
 
@@ -193,10 +190,9 @@
                                                             <select name="pick-item"
                                                                     class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                                                 <option>Choose item</option>
-                                                                <option value="apple" data-name="Apple - Autumn" data-image-name="apple.png" data-unitprice="250">Apple</option>
-                                                                <option value="strawberry" data-name="Strawberry - winter" data-image-name="strawberry.png" data-unitprice="350">Strawberry</option>
-                                                                <option value="banana" data-name="Banana - Summer" data-image-name="banana.png" data-unitprice="200">Banana</option>
-                                                                <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png" data-unitprice="300">Orange</option>
+                                                                <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png" data-unitprice="120">Carrots</option>
+                                                                <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png" data-unitprice="180">capsicum</option>
+                                                                <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png" data-unitprice="200">Broccoli</option>
                                                             </select>
                                                         </div>
 
