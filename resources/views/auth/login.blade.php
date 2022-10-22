@@ -59,9 +59,12 @@
                 </x-primary-button>
             </div>
 
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                <p class="m-0">
                     {{ __('Not a registered member?') }}
-                </a>
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                        {{ __('Register here') }}
+                    </a>
+                </p>
         </form>
     </x-auth-card>
 </x-guest-layout>

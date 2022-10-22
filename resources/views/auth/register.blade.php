@@ -56,9 +56,12 @@
                 </x-primary-button>
             </div>
 
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                <p class="m-0">
                     {{ __('Already registered?') }}
-                </a>
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                        {{ __('Login here') }}
+                    </a>
+                </p>
         </form>
     </x-auth-card>
 </x-guest-layout>
