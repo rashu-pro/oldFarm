@@ -33,4 +33,8 @@ Route::get('/dashboard-demo', function(){
     return view('dashboard-demo');
 });
 
+Route::get('/checkout', function(){
+    return view('checkout');
+});
+
 require __DIR__.'/auth.php';

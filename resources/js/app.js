@@ -8,8 +8,8 @@ Alpine.start();
 
 //=== custom script
 setTimeout(() => {
-    document.querySelector('.dashboard-loader-wrapper').classList.add('d-none');
-    document.querySelector('.dashboard-items').classList.remove('d-none');
+    document.querySelector('.dashboard-loader-wrapper')?document.querySelector('.dashboard-loader-wrapper').classList.add('d-none'):'';
+    document.querySelector('.dashboard-items')?document.querySelector('.dashboard-items').classList.remove('d-none'):'';
 }, 1000);
 
 document.querySelectorAll('.choose-item-js').forEach(element=>{
