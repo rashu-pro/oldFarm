@@ -16,3 +16,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/node_modules.zip
+/oldFarm.zip
+/vendor.zip
