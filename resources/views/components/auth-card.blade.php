@@ -1,7 +1,7 @@
 <div class="d-md-flex half login-register-template">
 
     <!-- //=== BG IMAGE -->
-    <div class="bg bg-content" style="background-image: url({{ url('images/bg_garden_min.jpg') }});">
+    <div class="bg bg-content" style="background-image: url({{ url('/images/bg_farmhouse.jpg') }});">
         <div class="bg-content-inner">
             <h2 class="login-bg-text">You choose what to grow leave rest on us!</h2>
         </div>

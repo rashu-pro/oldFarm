@@ -652,7 +652,7 @@
 }
 .dashboard-item{
 	display: block;
-    padding: 20px;
+    padding: 20px 20px 15px;
     /* box-shadow: 0 0 4px rgb(0 0 0 / 18%); */
     font-size: 14px;
     font-weight: 600;
@@ -664,15 +664,18 @@
 }
 .dashboard-item h2{
 	font-size: 18px;
-	/* color: #555; */
-	margin-top: 10px;
+	margin:0;
+  margin-top:10px;
 }
 .dashboard-item img{
     margin:0 auto;
+  width:100%;
+  height:130px;
+  object-fit: cover;
 }
 .dashboard-item img:hover{
-	transform: scale(1.2);
-	transition: .3s ease-in-out;
+	/*transform: scale(1.2);*/
+	/*transition: .3s ease-in-out;*/
 }
 .dashboard-item:hover{
     background-color: #f7f7f7;
@@ -843,5 +846,25 @@ footer input{
   }
   .dashboard-sidebar ul li{
     display: inline-flex;
+  }
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-number-input input:focus {
+  outline: none !important;
+}
+
+.custom-number-input button:focus {
+  outline: none !important;
+}
+
+@media (min-width:768px){
+  .btn-long{
+    min-width:220px;
   }
 }

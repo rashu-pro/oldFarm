@@ -40,7 +40,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="dashboard-item border-2 border-solid border-blue-800 rounded-md">
-                                                <img src="{{ url('images/fruit.png') }}">
+                                                <img src="{{ url('images/fruits_garden.png') }}">
                                                 <h2 class="text-blue-700">Fruits</h2>
                                             </div>
 
@@ -52,7 +52,7 @@
                                         <div class="col-md-4">
                                             <a href="{{ route('dashboard-vegetables') }}">
                                                 <div class="dashboard-item border-2 border-gray-400 rounded-md">
-                                                    <img src="{{ url('images/vegetable.png') }}">
+                                                    <img src="{{ url('images/vegetables_garden.png') }}">
                                                     <h2 class="text-gray-600">Vegetables</h2>
                                                 </div>
                                             </a>
@@ -61,7 +61,7 @@
                                         <div class="col-md-4">
                                             <a href="{{ route('dashboard-animals') }}">
                                                 <div class="dashboard-item border-2 border-gray-400 rounded-md">
-                                                    <img src="{{ url('images/cow.png') }}">
+                                                    <img src="{{ url('images/animal_stable.jpeg') }}">
                                                     <h2 class="text-gray-600">Animal</h2>
                                                 </div>
                                             </a>
@@ -79,7 +79,7 @@
                                         </button>
                                     </div>
 
-                                    <div class="py-4 pb-5 px-3">
+                                    <div class="py-4 pb-3 px-3">
 
                                         <div class="dashboard-loader-wrapper min-h-full flex align-middle justify-center">
                                             <div class="spinner">
@@ -98,7 +98,7 @@
                                         <div class="dashboard-items d-none">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <div class="dashboard-box rounded-md bg-white border border-gray-200">
+                                                    <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
                                                         <div class="dashboard-box-head pt-3 pb-2 px-2">
                                                             <select name="pick-item"
                                                                     class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
@@ -134,7 +134,25 @@
 
                                                             <div class="dashboard-box-content-content d-none">
                                                                 <h4 class="name-item-js text-blue-700 text-base m-0"></h4>
-                                                                <p class="font-medium text-gray-900 m-0"><span class="icon-currency">&euro;</span> <span class="unit-price unit-price-js"></span> </p>
+                                                                <p class="font-medium text-gray-900 m-0">
+                                                                    <span class="icon-currency">&euro;</span>
+                                                                    <span class="unit-price unit-price-js"></span>/<span class="unit" style="font-size: 13px">kg</span> X <span class="item-quantity">1</span>
+                                                                    = <span class="icon-currency">&euro;</span> <span class="item-total-price-js"></span>
+                                                                </p>
+                                                                <!-- quantity selector -->
+                                                                <div class="quantity-wrapper">
+                                                                    <div class="custom-number-input">
+                                                                        <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-2">
+                                                                            <button data-action="decrement" class=" bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-l cursor-pointer outline-none">
+                                                                                <span class="m-auto text-2xl font-thin">−</span>
+                                                                            </button>
+                                                                            <input type="number" class="outline-none focus:outline-none text-center w-full font-semibold border-slate-300 text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="1">
+                                                                            <button data-action="increment" class="bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-r cursor-pointer">
+                                                                                <span class="m-auto text-2xl font-thin">+</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
 
                                                         </div>
@@ -143,7 +161,7 @@
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <div class="dashboard-box rounded-md bg-white border border-gray-200">
+                                                    <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
                                                         <div class="dashboard-box-head pt-3 pb-2 px-2">
                                                             <select name="pick-item"
                                                                     class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
@@ -179,7 +197,25 @@
 
                                                             <div class="dashboard-box-content-content d-none">
                                                                 <h4 class="name-item-js text-blue-700 text-base m-0"></h4>
-                                                                <p class="font-medium text-gray-900 m-0"><span class="currency">&euro;</span> <span class="unit-price-js"></span> </p>
+                                                                <p class="font-medium text-gray-900 m-0">
+                                                                    <span class="icon-currency">&euro;</span>
+                                                                    <span class="unit-price unit-price-js"></span>/<span class="unit" style="font-size: 13px">kg</span> X <span class="item-quantity">1</span>
+                                                                    = <span class="icon-currency">&euro;</span> <span class="item-total-price-js"></span>
+                                                                </p>
+                                                                <!-- quantity selector -->
+                                                                <div class="quantity-wrapper">
+                                                                    <div class="custom-number-input">
+                                                                        <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-2">
+                                                                            <button data-action="decrement" class=" bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-l cursor-pointer outline-none">
+                                                                                <span class="m-auto text-2xl font-thin">−</span>
+                                                                            </button>
+                                                                            <input type="number" class="outline-none focus:outline-none text-center w-full font-semibold border-slate-300 text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="1">
+                                                                            <button data-action="increment" class="bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-r cursor-pointer">
+                                                                                <span class="m-auto text-2xl font-thin">+</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
 
                                                         </div>
@@ -188,7 +224,7 @@
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <div class="dashboard-box rounded-md bg-white border border-gray-200">
+                                                    <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
                                                         <div class="dashboard-box-head pt-3 pb-2 px-2">
                                                             <select name="pick-item"
                                                                     class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
@@ -224,7 +260,25 @@
 
                                                             <div class="dashboard-box-content-content d-none">
                                                                 <h4 class="name-item-js text-blue-700 text-base m-0"></h4>
-                                                                <p class="font-medium text-gray-900 m-0"><span class="currency">&euro;</span> <span class="unit-price-js"></span> </p>
+                                                                <p class="font-medium text-gray-900 m-0">
+                                                                    <span class="icon-currency">&euro;</span>
+                                                                    <span class="unit-price unit-price-js"></span>/<span class="unit" style="font-size: 13px">kg</span> X <span class="item-quantity">1</span>
+                                                                    = <span class="icon-currency">&euro;</span> <span class="item-total-price-js"></span>
+                                                                </p>
+                                                                <!-- quantity selector -->
+                                                                <div class="quantity-wrapper">
+                                                                    <div class="custom-number-input">
+                                                                        <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-2">
+                                                                            <button data-action="decrement" class=" bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-l cursor-pointer outline-none">
+                                                                                <span class="m-auto text-2xl font-thin">−</span>
+                                                                            </button>
+                                                                            <input type="number" class="outline-none focus:outline-none text-center w-full font-semibold border-slate-300 text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="1">
+                                                                            <button data-action="increment" class="bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-r cursor-pointer">
+                                                                                <span class="m-auto text-2xl font-thin">+</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
 
                                                         </div>
@@ -232,6 +286,10 @@
 
                                                 </div>
 
+                                            </div>
+
+                                            <div class="mt-4 text-center">
+                                                <button type="button" class="btn-long inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-base text text-white uppercase justify-center hover:bg-green-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Checkout</button>
                                             </div>
                                         </div>
                                     </div>
