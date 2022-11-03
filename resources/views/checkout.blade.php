@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
 
                     </div>
@@ -135,7 +135,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="cart-summary px-12 py-8 bg-slate-200">
                     <h2 class="mb-4">Order Summary</h2>
 
@@ -144,24 +144,169 @@
                             <div class="row">
                                 <div class="col-sm-8">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-4 pr-0">
                                             <div class="image-holder bg-white rounded-md shadow-sm border border-gray-200 text-center p-3">
                                                 <img src="{{'images/apple.png'}}" alt="apple" class="w-14 h-14 object-contain">
                                             </div>
                                         </div>
                                         <div class="col-8">
-                                            <p>Apple - Summer</p>
+                                            <p class="mb-2 font-medium text-semibold text-gray-800">Apple - Summer - 4kg</p>
+                                            <p class="mb-0 text-gray-500">Lorem ipsum dolor sit amet, consectetur.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <p>&euro; <span class="amount">300.00</span> </p>
+                                    <p class="m-0 font-medium text-right">&euro; <span class="amount">300.00</span> </p>
                                 </div>
                             </div>
+                            <hr>
                         </div>
+
+                        <div class="cart-item-single">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-4 pr-0">
+                                            <div class="image-holder bg-white rounded-md shadow-sm border border-gray-200 text-center p-3">
+                                                <img src="{{'images/lamb.png'}}" alt="apple" class="w-14 h-14 object-contain">
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <p class="mb-2 font-medium text-semibold text-gray-800">Lamb Whole Item - 1pz</p>
+                                            <p class="mb-0 text-gray-500">Lorem ipsum dolor sit amet, consectetur.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="m-0 font-medium text-right">&euro; <span class="amount">800.00</span> </p>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <div class="cart-item-single">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-4 pr-0">
+                                            <div class="image-holder bg-white rounded-md shadow-sm border border-gray-200 text-center p-3">
+                                                <img src="{{'images/orange.png'}}" alt="apple" class="w-14 h-14 object-contain">
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <p class="mb-2 font-medium text-semibold text-gray-800">Orange Winter - 5kg</p>
+                                            <p class="mb-0 text-gray-500">Lorem ipsum dolor sit amet, consectetur.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="m-0 font-medium text-right">&euro; <span class="amount">300.00</span> </p>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+
+
+                    <div class="flex">
+                        <h2 class="text-sm">ITEMS 2</h2>
+                    </div>
+
+                    <div
+                        class="flex items-center justify-between w-full py-4 font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                        Subtotal<span class="ml-2">&euro;1400.00</span></div>
+                    <div
+                        class="flex items-center justify-between w-full py-4 font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                        Shipping Tax<span class="ml-2">&euro;140</span></div>
+                    <div
+                        class="flex items-center justify-between w-full py-4 text-lg font-semibold lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                        Total<span class="ml-2">&euro;1540.00</span></div>
+
+                    <div class="mt-4">
+                        <x-primary-button class="bg-black">
+                            {{ __('Pay € 1540 Now') }}
+                        </x-primary-button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- footer -->
+    <footer class="footer v2">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-top-top border-b-2 border-gray-300">
+                    <div class="footer-logo">
+                        <img src="images/logo_old_farm.min.png" class="img-fluid" alt="oldfarm">
+                    </div>
+
+                    <div class="social-media">
+                        <ul>
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                            <li><a href=""><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-top-bottom">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="footer-column">
+                                <h3 class="footer-column-title">Address</h3>
+                                <div class="footer-column-details">
+                                    <address>
+                                        <p>Via del Viminale 92, Monteponi,
+                                            Brescia, Italy</p>
+                                        <p><a href="tel:+39 06 183 6186">+39 06 183 6186</a> </p>
+                                        <p><a href="mailto:info@oldfarm.it">info@oldfarm.it</a> </p>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="footer-column">
+                                <h3 class="footer-column-title">Quick Links</h3>
+                                <div class="footer-column-details">
+                                    <ul class="menu-list">
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Blogs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="footer-column">
+                                <h3 class="footer-column-title">Subscribe to Newsletter</h3>
+                                <div class="footer-column-details">
+                                    <div class="input-group input-group-subscribe">
+                                        <input type="email" class="form-control" placeholder="Your email...">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-success" id="basic-addon2">Subscribe</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-credit">
+            <div class="container">
+                <div class="d-sm-flex justify-content-center">
+                    <p class="m-0 text-center">&copy; 2022, All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </x-guest-layout>

@@ -54,7 +54,7 @@
                 </div>
 
             <div class="btn-holder mb-4">
-                <x-primary-button class="ml-3">
+                <x-primary-button class="">
                     {{ __('Log in') }}
                 </x-primary-button>
             </div>
