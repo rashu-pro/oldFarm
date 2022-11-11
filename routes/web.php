@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,12 +30,10 @@ Route::get('/dashboard-animals', function () {
     return view('dashboard-animals');
 })->middleware(['auth', 'verified'])->name('dashboard-animals');
 
-Route::get('/dashboard-demo', function(){
-    return view('dashboard-demo');
-});
-
 Route::get('/checkout', function(){
     return view('checkout');
-});
+})->middleware(['auth', 'verified'])->name('checkout');
 
+//=== test
+Route::get('/create', [createSubscription::class, 'createProduct'])->middleware(['auth', 'verified'])->name('create');
 require __DIR__.'/auth.php';

@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
     <div class="">
         <!-- main wrapper -->
         <div class="main-wrapper">
@@ -289,7 +287,10 @@
                                             </div>
 
                                             <div class="mt-4 text-center">
-                                                <button type="button" class="btn-long inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-base text text-white uppercase justify-center hover:bg-green-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Checkout</button>
+                                                <a href="{{route('create')}}"
+                                                        class="btn-long inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-base text text-white uppercase justify-center hover:bg-green-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                                                    Checkout
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

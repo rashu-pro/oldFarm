@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
 
    <!-- page title -->
    {{--<div class="page-title" style="background-image: url(images/marketplace-page-title.jpg)">--}}
@@ -309,4 +309,4 @@
             </div>
         </div>
     </footer>
-</x-guest-layout>
+</x-app-layout>
