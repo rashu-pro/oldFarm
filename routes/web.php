@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Laravel\Cashier\Cashier;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,11 @@ Route::get('/dashboard-animals', function () {
     return view('dashboard-animals');
 })->middleware(['auth', 'verified'])->name('dashboard-animals');
 
-Route::get('/checkout', function(){
+Route::post('/checkout', function(){
     return view('checkout');
 })->middleware(['auth', 'verified'])->name('checkout');
+
+Route::post('/add-subscription', [createSubscription::class, 'createSubscriptions'])->middleware(['auth', 'verified'])->name('add-subscription');;
 
 //=== test
 Route::get('/create', [createSubscription::class, 'createProduct'])->middleware(['auth', 'verified'])->name('create');
