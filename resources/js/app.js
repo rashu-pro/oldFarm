@@ -1,10 +1,13 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
+import ImageMap from "image-map";
 
 window.Alpine = Alpine;
 
 Alpine.start();
+
+ImageMap('img[usemap]', 500);
 
 //=== custom script
 const decrementButtons = document.querySelectorAll(
@@ -35,6 +38,7 @@ if(document.querySelector('.choose-item-js')){
     document.querySelectorAll('.choose-item-js').forEach(element=>{
         element.addEventListener('change', function(){
             let self = this,
+                selectedIndex = this.selectedIndex,
                 selectedItemCategory = this.options[this.selectedIndex],
                 itemName = selectedItemCategory.getAttribute('data-name'),
                 imageName = selectedItemCategory.getAttribute('data-image-name'),
@@ -47,6 +51,7 @@ if(document.querySelector('.choose-item-js')){
                 self.closest('.dashboard-box').querySelector('.dashboard-box-content-content').classList.add('d-none');
                 return;
             }
+
 
             self.closest('.dashboard-items').querySelector('.checkout-btn-holder').classList.remove('d-none');
 
@@ -77,6 +82,13 @@ if(document.getElementById('checkout-form')){
     document.getElementById('checkout-form').addEventListener('submit', ()=>{
         document.querySelector('.full-page-loader').classList.add('active');
         document.querySelector('.main-div').classList.add('blured');
+    });
+}
+
+if(document.querySelector('.fruits')){
+    document.querySelector('.fruits').addEventListener('click', e=>{
+        e.preventDefault();
+        console.log('clicked');
     });
 }
 

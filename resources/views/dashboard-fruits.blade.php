@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
     <div class="">
         <!-- main wrapper -->
         <div class="main-wrapper">
@@ -34,6 +32,7 @@
 
                         <!-- dashboard content -->
                         <div class="col-md-9">
+
                             <div class="dashboard-content">
 
                                 @if (session('status'))
@@ -70,15 +69,15 @@
                                     <div class="farm-banner">
                                         <div class="farm-banner-layer">
                                             <h2 class="farm-banner-title text-xl font-bold leading-7 text-white sm:text-3xl sm:tracking-tight">
-                                                Choose the vegetables you want to grow in your farm
+                                                Choose the fruits you want to grow in your farm
                                             </h2>
                                         </div>
 
 
-                                        <img class="farm-banner-image" src="{{url('images/image-vegetables-single.png')}}" alt="vegetables">
+                                        <img class="farm-banner-image" src="{{url('images/image-fruit-banner.jpg')}}" alt="vegetables">
                                     </div>
 
-                                    <div class="py-4 pb-5 px-3">
+                                    <div class="py-4 pb-3 px-3">
                                         <form action="{{url('checkout')}}" method="post">
                                             @csrf
                                             <div class="dashboard-loader-wrapper min-h-full flex align-middle justify-center">
@@ -101,83 +100,15 @@
                                                         <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
                                                             <div class="dashboard-box-head pt-3 pb-2 px-2">
                                                                 <select name="pick-item"
+                                                                        name="ProductName"
                                                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                                                     <option>Choose item</option>
-                                                                    <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png" data-unitprice="120">Carrots</option>
-                                                                    <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png" data-unitprice="180">capsicum</option>
-                                                                    <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png" data-unitprice="200">Broccoli</option>
-                                                                </select>
-                                                            </div>
-
-                                                            <div class="image-holder px-2">
-                                                                <img src="{{ url('images/placeholder_image_cropped.jpg') }}"
-                                                                     class="rounded-md">
-                                                            </div>
-
-                                                            <div class="dashboard-box-content pt-2 pb-3 px-3">
-                                                                <div class="not-item-selected">
-                                                                    <div class="">
-                                                                        <div class="flex space-x-4">
-                                                                            <div class="flex-1 space-y-6 py-1">
-                                                                                <div class="h-2 bg-slate-200 rounded"></div>
-                                                                                <div class="space-y-3">
-                                                                                    <div class="grid grid-cols-3 gap-4">
-                                                                                        <div class="h-2 bg-slate-200 rounded col-span-2"></div>
-                                                                                        <div class="h-2 bg-slate-200 rounded col-span-1"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="dashboard-box-content-content d-none">
-                                                                    <h4 class="name-item-js text-blue-700 text-base m-0"></h4>
-                                                                    <p class="font-medium text-gray-900 m-0">
-                                                                        <span class="icon-currency">&euro;</span>
-                                                                        <span class="unit-price unit-price-js"></span>/<span class="unit" style="font-size: 13px">kg</span> X <span class="item-quantity">1</span>
-                                                                        = <span class="icon-currency">&euro;</span> <span class="item-total-price-js"></span>
-                                                                    </p>
-                                                                    <!-- quantity selector -->
-                                                                    <div class="quantity-wrapper">
-                                                                        <div class="custom-number-input">
-                                                                            <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-2">
-                                                                                <button type="button" data-action="decrement" class=" bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-l cursor-pointer outline-none">
-                                                                                    <span class="m-auto text-2xl font-thin">−</span>
-                                                                                </button>
-                                                                                <input type="number"
-                                                                                       class="product-quantity outline-none focus:outline-none text-center w-full font-semibold border-slate-300 text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-                                                                                       name="Quantity" value="1">
-                                                                                <button type="button" data-action="increment" class="bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-r cursor-pointer">
-                                                                                    <span class="m-auto text-2xl font-thin">+</span>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="item-value-box">
-                                                                <input type="hidden" name="PickedProductName[]" class="item-name" value="">
-                                                                <input type="hidden" name="PickedProductQuantity[]" class="itempicked-quantity" value="">
-                                                                <input type="hidden" name="PickedProductUnitPrice[]" class="item-unitprice" value="">
-                                                                <input type="hidden" name="PickedProductPriceTotal[]" class="item-totalprice" value="">
-                                                                <input type="hidden" name="PickedProductImageUrl[]" class="item-image" value="">
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
-                                                            <div class="dashboard-box-head pt-3 pb-2 px-2">
-                                                                <select name="pick-item"
-                                                                        class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                                                    <option>Choose item</option>
-                                                                    <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png" data-unitprice="120">Carrots</option>
-                                                                    <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png" data-unitprice="180">capsicum</option>
-                                                                    <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png" data-unitprice="200">Broccoli</option>
+                                                                    <option value="apple" data-name="Apple - Autumn"
+                                                                            data-image-name="apple.png"
+                                                                            data-unitprice="40">Apple</option>
+                                                                    <option value="strawberry" data-name="Strawberry - winter" data-image-name="strawberry.png" data-unitprice="350">Strawberry</option>
+                                                                    <option value="banana" data-name="Banana - Summer" data-image-name="banana.png" data-unitprice="30">Banana</option>
+                                                                    <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png" data-unitprice="60">Orange</option>
                                                                 </select>
                                                             </div>
 
@@ -246,9 +177,10 @@
                                                                 <select name="pick-item"
                                                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                                                     <option>Choose item</option>
-                                                                    <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png" data-unitprice="120">Carrots</option>
-                                                                    <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png" data-unitprice="180">capsicum</option>
-                                                                    <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png" data-unitprice="200">Broccoli</option>
+                                                                    <option value="apple" data-name="Apple - Autumn" data-image-name="apple.png" data-unitprice="250">Apple</option>
+                                                                    <option value="strawberry" data-name="Strawberry - winter" data-image-name="strawberry.png" data-unitprice="350">Strawberry</option>
+                                                                    <option value="banana" data-name="Banana - Summer" data-image-name="banana.png" data-unitprice="200">Banana</option>
+                                                                    <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png" data-unitprice="300">Orange</option>
                                                                 </select>
                                                             </div>
 
@@ -288,9 +220,7 @@
                                                                                 <button type="button" data-action="decrement" class=" bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-l cursor-pointer outline-none">
                                                                                     <span class="m-auto text-2xl font-thin">−</span>
                                                                                 </button>
-                                                                                <input type="number"
-                                                                                       class="product-quantity outline-none focus:outline-none text-center w-full font-semibold border-slate-300 text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-                                                                                       name="Quantity" value="1">
+                                                                                <input type="number" class="product-quantity outline-none focus:outline-none text-center w-full font-semibold border-slate-300 text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="1">
                                                                                 <button type="button" data-action="increment" class="bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-r cursor-pointer">
                                                                                     <span class="m-auto text-2xl font-thin">+</span>
                                                                                 </button>
@@ -309,7 +239,76 @@
                                                                 <input type="hidden" name="PickedProductImageUrl[]" class="item-image" value="">
                                                             </div>
                                                         </div>
+                                                    </div>
 
+                                                    <div class="col-md-4">
+                                                        <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
+                                                            <div class="dashboard-box-head pt-3 pb-2 px-2">
+                                                                <select name="pick-item"
+                                                                        class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                                                    <option>Choose item</option>
+                                                                    <option value="apple" data-name="Apple - Autumn" data-image-name="apple.png" data-unitprice="250">Apple</option>
+                                                                    <option value="strawberry" data-name="Strawberry - winter" data-image-name="strawberry.png" data-unitprice="350">Strawberry</option>
+                                                                    <option value="banana" data-name="Banana - Summer" data-image-name="banana.png" data-unitprice="200">Banana</option>
+                                                                    <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png" data-unitprice="300">Orange</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="image-holder px-2">
+                                                                <img src="{{ url('images/placeholder_image_cropped.jpg') }}"
+                                                                     class="rounded-md">
+                                                            </div>
+
+                                                            <div class="dashboard-box-content pt-2 pb-3 px-3">
+                                                                <div class="not-item-selected">
+                                                                    <div class="">
+                                                                        <div class="flex space-x-4">
+                                                                            <div class="flex-1 space-y-6 py-1">
+                                                                                <div class="h-2 bg-slate-200 rounded"></div>
+                                                                                <div class="space-y-3">
+                                                                                    <div class="grid grid-cols-3 gap-4">
+                                                                                        <div class="h-2 bg-slate-200 rounded col-span-2"></div>
+                                                                                        <div class="h-2 bg-slate-200 rounded col-span-1"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="dashboard-box-content-content d-none">
+                                                                    <h4 class="name-item-js text-blue-700 text-base m-0"></h4>
+                                                                    <p class="font-medium text-gray-900 m-0">
+                                                                        <span class="icon-currency">&euro;</span>
+                                                                        <span class="unit-price unit-price-js"></span>/<span class="unit" style="font-size: 13px">kg</span> X <span class="item-quantity">1</span>
+                                                                        = <span class="icon-currency">&euro;</span> <span class="item-total-price-js"></span>
+                                                                    </p>
+                                                                    <!-- quantity selector -->
+                                                                    <div class="quantity-wrapper">
+                                                                        <div class="custom-number-input">
+                                                                            <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-2">
+                                                                                <button type="button" data-action="decrement" class=" bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-l cursor-pointer outline-none">
+                                                                                    <span class="m-auto text-2xl font-thin">−</span>
+                                                                                </button>
+                                                                                <input type="number" class="product-quantity outline-none focus:outline-none text-center w-full font-semibold border-slate-300 text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="1">
+                                                                                <button type="button" data-action="increment" class="bg-slate-300 text-gray-600 hover:text-gray-700 hover:bg-slate-400 h-full w-20 rounded-r cursor-pointer">
+                                                                                    <span class="m-auto text-2xl font-thin">+</span>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="item-value-box">
+                                                                <input type="hidden" name="PickedProductName[]" class="item-name" value="">
+                                                                <input type="hidden" name="PickedProductQuantity[]" class="itempicked-quantity" value="">
+                                                                <input type="hidden" name="PickedProductUnitPrice[]" class="item-unitprice" value="">
+                                                                <input type="hidden" name="PickedProductPriceTotal[]" class="item-totalprice" value="">
+                                                                <input type="hidden" name="PickedProductImageUrl[]" class="item-image" value="">
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                 </div>
@@ -321,10 +320,8 @@
                                                 </div>
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

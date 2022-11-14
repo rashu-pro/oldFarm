@@ -20,9 +20,17 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::get('/dashboard-main', function () {
+    return view('dashboard-main');
+})->middleware(['auth', 'verified'])->name('dashboard-main');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard-fruits', function () {
+    return view('dashboard-fruits');
+})->middleware(['auth', 'verified'])->name('dashboard-fruits');
 
 Route::get('/dashboard-vegetables', function () {
     return view('dashboard-vegetables');

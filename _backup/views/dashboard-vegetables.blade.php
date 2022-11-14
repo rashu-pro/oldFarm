@@ -36,46 +36,47 @@
                         <div class="col-md-9">
                             <div class="dashboard-content">
 
-                                @if (session('status'))
-                                    @if(session('status')=='success')
-                                        <div class="alert-div" role="alert">
-                                            <div class="relative bg-blue-500 text-white font-bold rounded-t px-4 py-2">
-                                                Success:
+                                <div class="dashboard-item-box pb-2">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a href="{{ route('dashboard') }}">
+                                                <div class="dashboard-item border-2 border-solid border-gray-400 rounded-md">
+                                                    <img src="{{ url('images/fruits_garden.png') }}">
+                                                    <h2 class="text-gray-600">Fruits</h2>
+                                                </div>
+                                            </a>
+                                        </div>
 
-                                                <span class="alert-close absolute top-0 bottom-0 right-0 pt-2 pr-2">
-                                                    <svg class="fill-current h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                                                </span>
+                                        <div class="col-md-4">
+                                            <div class="dashboard-item border-2 border-blue-800 rounded-md">
+                                                <img src="{{ url('images/vegetables_garden.png') }}">
+                                                <h2 class="text-blue-700">Vegetables</h2>
                                             </div>
-                                            <div class="border border-t-0 border-blue-400 rounded-b bg-blue-100 px-4 py-3 text-blue-700">
-                                                <p class="m-0">Products has been added to your farm successfully!</p>
+
+                                            <div class="text-center pt-2">
+                                                <img src="{{ url('images/down-arrow_64.png') }}" alt="" class="inline-block w-12">
                                             </div>
                                         </div>
-                                    @else
-                                        <div class="alert-div" role="alert">
-                                            <div class="relative bg-red-500 text-white font-bold rounded-t px-4 py-2">
-                                                Alert:
 
-                                                <span class="alert-close absolute top-0 bottom-0 right-0 pt-2 pr-2">
-                                                    <svg class="fill-current h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                                                </span>
-                                            </div>
-                                            <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                                                <p class="m-0">Something went wrong! Please try again.</p>
-                                            </div>
+                                        <div class="col-md-4">
+                                            <a href="{{ route('dashboard-animals') }}">
+                                                <div class="dashboard-item border-2 border-gray-400 rounded-md">
+                                                    <img src="{{ url('images/animal_stable.jpeg') }}">
+                                                    <h2 class="text-gray-600">Animal</h2>
+                                                </div>
+                                            </a>
                                         </div>
-                                    @endif
-                                @endif
+                                    </div>
+                                </div>
 
                                 <div class="dashboard-content-box bg-white rounded-md border-2 border-gray-300 border-solid shadow-sm">
-                                    <div class="farm-banner">
-                                        <div class="farm-banner-layer">
-                                            <h2 class="farm-banner-title text-xl font-bold leading-7 text-white sm:text-3xl sm:tracking-tight">
-                                                Choose the vegetables you want to grow in your farm
-                                            </h2>
-                                        </div>
-
-
-                                        <img class="farm-banner-image" src="{{url('images/image-vegetables-single.png')}}" alt="vegetables">
+                                    <div class="bg-white border-b border-gray-200 py-3 px-4 flex justify-between">
+                                        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                                            Choose what you want to grow</h2>
+                                        <button type="button"
+                                                class="bg-black text-white px-3 py-2 rounded-md hover:bg-gray-800 hover:shadow-md d-none">
+                                            X
+                                        </button>
                                     </div>
 
                                     <div class="py-4 pb-5 px-3">
