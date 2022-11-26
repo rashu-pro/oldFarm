@@ -4,35 +4,34 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('categories', function (Blueprint $table){
-           $table->bigIncrements('id');
-           $table->string('name');
-           $table->string('excerpt')->nullable();
-           $table->string('description')->nullable();
-           $table->string('slug')->nullable();
-           $table->string('image_url')->nullable();
-           $table->boolean('is_active')->nullable();
+return new class extends Migration {
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('categories', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table->string('name');
+      $table->string('excerpt')->nullable();
+      $table->string('description')->nullable();
+      $table->string('slug')->nullable();
+      $table->string('image_url')->nullable();
+      $table->boolean('is_active')->nullable();
 
-           $table->timestamps();
-        });
-    }
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('categories');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('categories');
+  }
 };

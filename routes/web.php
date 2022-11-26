@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
@@ -17,35 +18,35 @@ use Laravel\Cashier\Cashier;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+  return view('auth/login');
 });
 
 Route::get('/dashboard-main', function () {
-    return view('dashboard-main');
+  return view('dashboard-main');
 })->middleware(['auth', 'verified'])->name('dashboard-main');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+  return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard-fruits', function () {
-    return view('dashboard-fruits');
+  return view('dashboard-fruits');
 })->middleware(['auth', 'verified'])->name('dashboard-fruits');
 
 Route::get('/dashboard-vegetables', function () {
-    return view('dashboard-vegetables');
+  return view('dashboard-vegetables');
 })->middleware(['auth', 'verified'])->name('dashboard-vegetables');
 
 Route::get('/dashboard-animals', function () {
-    return view('dashboard-animals');
+  return view('dashboard-animals');
 })->middleware(['auth', 'verified'])->name('dashboard-animals');
 
-Route::post('/checkout', function(){
-    return view('checkout');
+Route::post('/checkout', function () {
+  return view('checkout');
 })->middleware(['auth', 'verified'])->name('checkout');
 
 Route::post('/add-subscription', [createSubscription::class, 'createSubscriptions'])->middleware(['auth', 'verified'])->name('add-subscription');;
 
 //=== test
 Route::get('/create', [createSubscription::class, 'createProduct'])->middleware(['auth', 'verified'])->name('create');
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

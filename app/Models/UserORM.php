@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserORM extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $table = 'users';
+  protected $table = 'users';
 }
