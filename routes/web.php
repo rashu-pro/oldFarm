@@ -45,8 +45,23 @@ Route::post('/checkout', function () {
   return view('checkout');
 })->middleware(['auth', 'verified'])->name('checkout');
 
-Route::post('/add-subscription', [createSubscription::class, 'createSubscriptions'])->middleware(['auth', 'verified'])->name('add-subscription');;
+Route::post('/add-subscription', [createSubscription::class, 'createSubscriptions'])->middleware(['auth', 'verified'])->name('add-subscription');
+
+// add category
+Route::get('/add-category', function (){
+  return view('admin/add-category');
+})->middleware(['auth', 'verified'])->name('add-category');
+Route::post('/insert-category', [Cateogy::class, 'insertCategory'])->middleware(['auth', 'verified'])->name('insert-category');
+
+// add product and price
+//Route::get('/add-product', function(){
+//  return view('admin/add-product');
+//})->middleware(['auth', 'verified'])->name('add-product');
+
+Route::get('/add-product', [ControllerProduct::class, 'viewProduct'])->middleware(['auth', 'verified'])->name('add-product');
+Route::post('/save-product', [ControllerProduct::class, 'saveProduct'])->middleware(['auth', 'verified'])->name('save-product');
 
 //=== test
 Route::get('/create', [createSubscription::class, 'createProduct'])->middleware(['auth', 'verified'])->name('create');
+
 require __DIR__ . '/auth.php';

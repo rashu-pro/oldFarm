@@ -29,7 +29,7 @@
                                                 </span>
                       </div>
                       <div class="border border-t-0 border-blue-400 rounded-b bg-blue-100 px-4 py-3 text-blue-700">
-                        <p class="m-0">Products has been added to your farm successfully!</p>
+                        <p class="m-0">Product has been added successfully!</p>
                       </div>
                     </div>
                   @else

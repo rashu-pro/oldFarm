@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Illuminate\Database\DBAL\TimestampType;
 
 return [
 
@@ -93,6 +94,12 @@ return [
       // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
     ],
 
+  ],
+
+  'dbal' => [
+    'types' => [
+      'timestamp' => TimestampType::class,
+    ],
   ],
 
   /*

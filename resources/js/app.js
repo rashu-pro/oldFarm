@@ -88,7 +88,6 @@ if (document.getElementById('checkout-form')) {
 if (document.querySelector('.fruits')) {
   document.querySelector('.fruits').addEventListener('click', e => {
     e.preventDefault();
-    console.log('clicked');
   });
 }
 
