@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
   <div class="">
     <!-- main wrapper -->
     <div class="main-wrapper">
@@ -10,73 +8,58 @@
 
             <!-- sidebar -->
             <div class="col-md-3">
-              <aside class="dashboard-sidebar h-100 bg-slate-800 text-white pt-5 pb-4 px-3">
-                <h3 class="pb-3 border-b border-gray-600 mb-3">My Account</h3>
-                <ul class="flex flex-col">
-                  <li class="mb-1 bg-slate-900 rounded-md active"><a href="#" class="text-white block py-2 px-3">Dashboard</a>
-                  </li>
-                  <li class="bg-slate-800 hover:bg-slate-900 hover:rounded-md"><a href="#"
-                                                                                  class="text-white block py-2 px-2 rounded-md hover:px-3">Vegetables</a>
-                  </li>
-                  <li class="bg-slate-800 hover:bg-slate-900 hover:rounded-md"><a href="#"
-                                                                                  class="text-white block py-2 px-2 rounded-md hover:px-3">My
-                      Profile</a></li>
-                  <li class="bg-slate-800 hover:bg-slate-900 hover:rounded-md"><a href="#"
-                                                                                  class="text-white block py-2 px-2 rounded-md hover:px-3">Seasonal</a>
-                  </li>
-                  <li class="bg-slate-800 hover:bg-slate-900 hover:rounded-md"><a href="#"
-                                                                                  class="text-white block py-2 px-2 rounded-md hover:px-3">Logout</a>
-                  </li>
-                </ul>
-              </aside>
+              @include('layouts.sidebar')
             </div>
 
             <!-- dashboard content -->
             <div class="col-md-9">
               <div class="dashboard-content">
 
-                <div class="dashboard-item-box pb-2">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <a href="{{ route('dashboard') }}">
-                        <div class="dashboard-item border-2 border-solid border-gray-400 rounded-md">
-                          <img src="{{ url('images/fruits_garden.png') }}">
-                          <h2 class="text-gray-600">Fruits</h2>
-                        </div>
-                      </a>
+                @if (session('status'))
+                  @if(session('status')=='success')
+                    <div class="alert-div" role="alert">
+                      <div class="relative bg-blue-500 text-white font-bold rounded-t px-4 py-2">
+                        Success:
 
-
-                    </div>
-
-                    <div class="col-md-4">
-                      <a href="{{ route('dashboard-vegetables') }}">
-                        <div class="dashboard-item border-2 border-gray-400 rounded-md">
-                          <img src="{{ url('images/vegetables_garden.png') }}">
-                          <h2 class="text-gray-600">Vegetables</h2>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="dashboard-item border-2 border-blue-800 rounded-md">
-                        <img src="{{ url('images/animal_stable.jpeg') }}">
-                        <h2 class="text-blue-700">Animal</h2>
+                        <span class="alert-close absolute top-0 bottom-0 right-0 pt-2 pr-2">
+                                                    <svg class="fill-current h-6 w-6 text-white"
+                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path
+                                                        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                                                </span>
                       </div>
-                      <div class="text-center pt-2">
-                        <img src="{{ url('images/down-arrow_64.png') }}" alt="" class="inline-block w-12">
+                      <div class="border border-t-0 border-blue-400 rounded-b bg-blue-100 px-4 py-3 text-blue-700">
+                        <p class="m-0">Products has been added to your farm successfully!</p>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  @else
+                    <div class="alert-div" role="alert">
+                      <div class="relative bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                        Alert:
+
+                        <span class="alert-close absolute top-0 bottom-0 right-0 pt-2 pr-2">
+                                                    <svg class="fill-current h-6 w-6 text-white"
+                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path
+                                                        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                                                </span>
+                      </div>
+                      <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                        <p class="m-0">Something went wrong! Please try again.</p>
+                      </div>
+                    </div>
+                  @endif
+                @endif
 
                 <div class="dashboard-content-box bg-white rounded-md border-2 border-gray-300 border-solid shadow-sm">
-                  <div class="bg-white border-b border-gray-200 py-3 px-4 flex justify-between">
-                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                      Choose what you want to grow</h2>
-                    <button type="button"
-                            class="bg-black text-white px-3 py-2 rounded-md hover:bg-gray-800 hover:shadow-md d-none">
-                      X
-                    </button>
+                  <div class="farm-banner">
+                    <div class="farm-banner-layer">
+                      <h2
+                        class="farm-banner-title text-xl font-bold leading-7 text-white sm:text-3xl sm:tracking-tight">
+                        Choose the animals you want to grow in your farm
+                      </h2>
+                    </div>
+
+
+                    <img class="farm-banner-image" src="{{url('images/image-animal-banner.png')}}" alt="vegetables">
                   </div>
 
                   <div class="py-4 pb-5 px-3">
@@ -375,82 +358,4 @@
       </div>
     </div>
   </div>
-
-  <!-- footer -->
-  <footer class="footer v2">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-top-top border-b-2 border-gray-300">
-          <div class="footer-logo">
-            <img src="images/logo_old_farm.min.png" class="img-fluid" alt="oldfarm">
-          </div>
-
-          <div class="social-media">
-            <ul>
-              <li><a href=""><i class="fa fa-facebook"></i></a></li>
-              <li><a href=""><i class="fa fa-twitter"></i></a></li>
-              <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-              <li><a href=""><i class="fa fa-instagram"></i></a></li>
-              <li><a href=""><i class="fa fa-youtube"></i></a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-top-bottom">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="footer-column">
-                <h3 class="footer-column-title">Address</h3>
-                <div class="footer-column-details">
-                  <address>
-                    <p>Via del Viminale 92, Monteponi,
-                      Brescia, Italy</p>
-                    <p><a href="tel:+39 06 183 6186">+39 06 183 6186</a></p>
-                    <p><a href="mailto:info@oldfarm.it">info@oldfarm.it</a></p>
-                  </address>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="footer-column">
-                <h3 class="footer-column-title">Quick Links</h3>
-                <div class="footer-column-details">
-                  <ul class="menu-list">
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Blogs</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="footer-column">
-                <h3 class="footer-column-title">Subscribe to Newsletter</h3>
-                <div class="footer-column-details">
-                  <div class="input-group input-group-subscribe">
-                    <input type="email" class="form-control" placeholder="Your email...">
-                    <div class="input-group-append">
-                      <button type="button" class="btn btn-success" id="basic-addon2">Subscribe</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-credit">
-      <div class="container">
-        <div class="d-sm-flex justify-content-center">
-          <p class="m-0 text-center">&copy; 2022, All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 </x-app-layout>

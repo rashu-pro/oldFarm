@@ -1,9 +1,8 @@
-<!-- footer -->
 <footer class="footer v2">
 
   <div class="footer-top">
     <div class="container">
-      <div class="footer-top-top">
+      <div class="footer-top-top border-b-2 border-gray-300">
         <div class="footer-logo">
           <img src="images/logo_old_farm.min.png" class="img-fluid" alt="oldfarm">
         </div>
@@ -55,7 +54,8 @@
                 <div class="input-group input-group-subscribe">
                   <input type="email" class="form-control" placeholder="Your email...">
                   <div class="input-group-append">
-                    <button type="button" class="btn btn-success" id="basic-addon2">Subscribe</button>
+                    <button type="button" class="btn btn-success" id="basic-addon2">Subscribe
+                    </button>
                   </div>
                 </div>
               </div>
@@ -74,5 +74,4 @@
       </div>
     </div>
   </div>
-
 </footer>

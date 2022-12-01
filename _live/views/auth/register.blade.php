@@ -52,7 +52,7 @@
       </div>
 
       <div class="flex items-center justify-end my-4">
-        <x-primary-button class="ml-4">
+        <x-primary-button class="">
           {{ __('Register') }}
         </x-primary-button>
       </div>

@@ -12,12 +12,12 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-  <link rel="stylesheet" href="public/build/assets/app.c919fbc5.css">
+  <link rel="stylesheet" href="public/build/assets/app.e9526f1b.css">
 
 
 </head>
 <body class="font-sans antialiased">
-<div class="main-div min-h-screen bg-gray-100">
+<div class="main-div bg-gray-100">
   @include('layouts.navigation')
 
   <!-- Page Heading -->
@@ -34,6 +34,9 @@
     {{ $slot }}
   </main>
 </div>
+
+<!-- footer -->
+@include('layouts.footer')
 
 <div class="full-page-loader">
   <div class="dashboard-loader-full-wrapper min-h-full flex align-middle justify-center">
@@ -53,6 +56,6 @@
   </div>
 </div>
 
-<script src="public/build/assets/app.1711ceac.js"></script>
+<script src="public/build/assets/app.c34380c7.js"></script>
 </body>
 </html>
