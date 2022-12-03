@@ -65,7 +65,7 @@
                   </div>
 
                   <div class="py-4 pb-5 px-3">
-                    <form action="{{url('checkout')}}" method="post">
+                    <form action="{{route('checkout')}}" method="post">
                       @csrf
                       <div class="dashboard-loader-wrapper min-h-full flex align-middle justify-center">
                         <div class="spinner">
@@ -91,15 +91,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png"
-                                          data-unitprice="120">Carrots
-                                  </option>
-                                  <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png"
-                                          data-unitprice="180">capsicum
-                                  </option>
-                                  <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png"
-                                          data-unitprice="200">Broccoli
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 
@@ -175,15 +174,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png"
-                                          data-unitprice="120">Carrots
-                                  </option>
-                                  <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png"
-                                          data-unitprice="180">capsicum
-                                  </option>
-                                  <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png"
-                                          data-unitprice="200">Broccoli
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 
@@ -258,15 +256,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="carrots" data-name="Carrots - Autumn" data-image-name="carrots.png"
-                                          data-unitprice="120">Carrots
-                                  </option>
-                                  <option value="capsicum" data-name="Capsicum - winter" data-image-name="capsicum.png"
-                                          data-unitprice="180">capsicum
-                                  </option>
-                                  <option value="broccoli" data-name="Broccoli - winter" data-image-name="broccoli.png"
-                                          data-unitprice="200">Broccoli
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 

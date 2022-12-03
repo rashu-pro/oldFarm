@@ -91,19 +91,14 @@
                                         name="ProductName"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="apple" data-name="Apple - Autumn"
-                                          data-image-name="apple.png"
-                                          data-unitprice="40">Apple
-                                  </option>
-                                  <option value="strawberry" data-name="Strawberry - winter"
-                                          data-image-name="strawberry.png" data-unitprice="350">Strawberry
-                                  </option>
-                                  <option value="banana" data-name="Banana - Summer" data-image-name="banana.png"
-                                          data-unitprice="30">Banana
-                                  </option>
-                                  <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png"
-                                          data-unitprice="60">Orange
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 
@@ -178,18 +173,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="apple" data-name="Apple - Autumn" data-image-name="apple.png"
-                                          data-unitprice="250">Apple
-                                  </option>
-                                  <option value="strawberry" data-name="Strawberry - winter"
-                                          data-image-name="strawberry.png" data-unitprice="350">Strawberry
-                                  </option>
-                                  <option value="banana" data-name="Banana - Summer" data-image-name="banana.png"
-                                          data-unitprice="200">Banana
-                                  </option>
-                                  <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png"
-                                          data-unitprice="300">Orange
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 
@@ -264,18 +255,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="apple" data-name="Apple - Autumn" data-image-name="apple.png"
-                                          data-unitprice="250">Apple
-                                  </option>
-                                  <option value="strawberry" data-name="Strawberry - winter"
-                                          data-image-name="strawberry.png" data-unitprice="350">Strawberry
-                                  </option>
-                                  <option value="banana" data-name="Banana - Summer" data-image-name="banana.png"
-                                          data-unitprice="200">Banana
-                                  </option>
-                                  <option value="orange" data-name="Orange - Rainy" data-image-name="orange.png"
-                                          data-unitprice="300">Orange
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 

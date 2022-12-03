@@ -18,7 +18,7 @@
     <div class="container">
       <form id="checkout-form" method="post" action="{{url('/add-subscription')}}">
         @csrf
-        <div class="grid grid-cols-2 gap-4 my-14 bg-white rounded-lg border border-gray-300">
+        <div class="grid grid-cols-2 gap-4 bg-white rounded-lg border border-gray-300">
           <div class="form-div px-12 py-8">
             <div class="form-group pb-6">
               <h2 class="mb-2">Contact Information</h2>
@@ -29,48 +29,55 @@
 
             <div class="form-group pb-4">
               <h2 class="mb-2">Payment Details</h2>
-              <div class="mb-4">
-                <x-input-label for="card-holder-name" value="Name on Card"/>
-                <x-text-input id="card-holder-name" class="block mt-1 w-full"
-                              type="text" name="nameOnCard" required/>
-              </div>
 
+              @if($hasPaymentMethod['status'])
 
-              <div class="mb-4">
-                <x-input-label for="card-number" value="Card Number"/>
-                <x-text-input id="card-number" class="block mt-1 w-full"
-                              type="text" name="cardNumber" required/>
-              </div>
-
-              <div class="">
-                <div class="flex flex-row">
-                  <div class="basis-1/3 pr-3">
-                    <div class="mb-4">
-                      <x-input-label for="exp-month" value="Expiry Month"/>
-                      <x-text-input id="exp-month" class="block mt-1 w-full"
-                                    type="text" name="expiryMonth" required/>
-                    </div>
-                  </div>
-
-                  <div class="basis-1/3 pr-3">
-                    <div class="mb-4">
-                      <x-input-label for="exp-year" value="Expiry Year"/>
-                      <x-text-input id="exp-year" class="block mt-1 w-full"
-                                    type="text" name="expiryYear" required/>
-                    </div>
-                  </div>
-
-                  <div class="basis-1/3">
-                    <div class="mb-4">
-                      <x-input-label for="cvc" value="CVV"/>
-                      <x-text-input id="cvc" class="block mt-1 w-full"
-                                    type="text" name="cvc" required/>
-                    </div>
-                  </div>
+                <div class="">
+                  <p class="m-0">Last 4 digit of your card: {{$hasPaymentMethod['last4']}}</p>
                 </div>
 
-              </div>
+                @else
+                <div class="mb-4">
+                  <x-input-label for="card-holder-name" value="Name on Card"/>
+                  <x-text-input id="card-holder-name" class="block mt-1 w-full"
+                                type="text" name="nameOnCard" required/>
+                </div>
 
+                <div class="mb-4">
+                  <x-input-label for="card-number" value="Card Number"/>
+                  <x-text-input id="card-number" class="block mt-1 w-full"
+                                type="text" name="cardNumber" required/>
+                </div>
+
+                <div class="">
+                  <div class="flex flex-row">
+                    <div class="basis-1/3 pr-3">
+                      <div class="mb-4">
+                        <x-input-label for="exp-month" value="Expiry Month"/>
+                        <x-text-input id="exp-month" class="block mt-1 w-full"
+                                      type="text" name="expiryMonth" required/>
+                      </div>
+                    </div>
+
+                    <div class="basis-1/3 pr-3">
+                      <div class="mb-4">
+                        <x-input-label for="exp-year" value="Expiry Year"/>
+                        <x-text-input id="exp-year" class="block mt-1 w-full"
+                                      type="text" name="expiryYear" required/>
+                      </div>
+                    </div>
+
+                    <div class="basis-1/3">
+                      <div class="mb-4">
+                        <x-input-label for="cvc" value="CVV"/>
+                        <x-text-input id="cvc" class="block mt-1 w-full"
+                                      type="text" name="cvc" required/>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              @endif
             </div>
 
             <div class="form-group pb-4">
@@ -124,19 +131,19 @@
 
             </div>
 
-            <div class="form-group pb-6">
-              <h2 class="mb-3">Billing Information</h2>
+{{--            <div class="form-group pb-6">--}}
+{{--              <h2 class="mb-3">Billing Information</h2>--}}
 
-              <div class="block m-0">
-                <label for="is-same-shipping" class="inline-flex items-center">
-                  <input id="is-same-shipping" type="checkbox" checked
-                         class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                         name="isSameShipping">
-                  <span class="ml-2 text-sm text-lg font-medium">{{ __('Same as shipping information') }}</span>
-                </label>
-              </div>
+{{--              <div class="block m-0">--}}
+{{--                <label for="is-same-shipping" class="inline-flex items-center">--}}
+{{--                  <input id="is-same-shipping" type="checkbox" checked--}}
+{{--                         class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"--}}
+{{--                         name="isSameShipping">--}}
+{{--                  <span class="ml-2 text-sm text-lg font-medium">{{ __('Same as shipping information') }}</span>--}}
+{{--                </label>--}}
+{{--              </div>--}}
 
-            </div>
+{{--            </div>--}}
 
           </div>
 
@@ -160,15 +167,15 @@
                           <div class="col-4 pr-0">
                             <div
                               class="image-holder bg-white rounded-md shadow-sm border border-gray-200 text-center p-3">
-                              <img src="images/{{request()->post()['PickedProductImageUrl'][$count]}}" alt="apple"
+                              <img src="uploads/{{request()->post()['PickedProductImageUrl'][$count]}}" alt="apple"
                                    class="w-14 h-14 object-contain">
                             </div>
                           </div>
                           <div class="col-8">
                             <p
                               class="mb-2 font-medium text-semibold text-gray-800">{{request()->post()['PickedProductName'][$count]}}
-                              -
-                              {{request()->post()['PickedProductQuantity'][$count]}}kg</p>
+                              - Qty:
+                              {{request()->post()['PickedProductQuantity'][$count]}}</p>
                             <p class="mb-0 text-gray-500">Lorem ipsum dolor sit amet, consectetur.</p>
                           </div>
                         </div>
@@ -220,11 +227,11 @@
 
 
             <div class="mt-4">
-              <x-primary-button class="bg-black btn-checkout-form-js">
+              <x-primary-button type="button" class="bg-black btn-checkout-form-js">
                 Subscribe (total- &euro;{{ $total }})
               </x-primary-button>
               <div class="mt-1">
-                <p class="text-success font-medium">Automatic monthly payment</p>
+{{--                <p class="text-success font-medium">Automatic monthly payment</p>--}}
               </div>
             </div>
           </div>
@@ -232,8 +239,5 @@
       </form>
     </div>
   </div>
-
-  <!-- footer -->
-  @include('layouts.footer')
 
 </x-app-layout>

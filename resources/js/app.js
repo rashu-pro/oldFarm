@@ -58,7 +58,7 @@ if (document.querySelector('.choose-item-js')) {
       self.closest('.item-box').querySelector('.product-quantity').value = 1;
       self.closest('.item-box').querySelector('.itempicked-quantity').value = self.closest('.item-box').querySelector('.product-quantity').value;
 
-      self.closest('.dashboard-box').querySelector('.image-holder img').setAttribute('src', '/images/' + imageName);
+      self.closest('.dashboard-box').querySelector('.image-holder img').setAttribute('src', '/uploads/' + imageName);
       self.closest('.dashboard-box').querySelector('.name-item-js').innerText = itemName;
       self.closest('.dashboard-box').querySelector('.unit-price-js').innerText = unitPrice;
       self.closest('.dashboard-box').querySelector('.not-item-selected').classList.add('d-none');

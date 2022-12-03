@@ -29,23 +29,29 @@ Route::get('/dashboard', function () {
   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard-fruits', function () {
-  return view('dashboard-fruits');
-})->middleware(['auth', 'verified'])->name('dashboard-fruits');
+Route::get('/dashboard-animals', [ControllerViewProduct::class, 'viewProducts'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard-animals');
 
-Route::get('/dashboard-vegetables', function () {
-  return view('dashboard-vegetables');
-})->middleware(['auth', 'verified'])->name('dashboard-vegetables');
+Route::get('/dashboard-vegetables', [ControllerViewProduct::class, 'viewProducts'])
+  ->middleware(['auth', 'verified'])
+  ->name('dashboard-vegetables');
 
-Route::get('/dashboard-animals', function () {
-  return view('dashboard-animals');
-})->middleware(['auth', 'verified'])->name('dashboard-animals');
+Route::get('/dashboard-fruits', [ControllerViewProduct::class, 'viewProducts'])
+  ->middleware(['auth', 'verified'])
+  ->name('dashboard-fruits');
 
-Route::post('/checkout', function () {
-  return view('checkout');
-})->middleware(['auth', 'verified'])->name('checkout');
+Route::post('/checkout', [ControllerCheckout::class, 'viewCheckout'])
+    ->middleware(['auth', 'verified'])
+    ->name('checkout');
 
-Route::post('/add-subscription', [createSubscription::class, 'createSubscriptions'])->middleware(['auth', 'verified'])->name('add-subscription');
+//Route::post('/checkout', function () {
+//  return view('checkout');
+//})->middleware(['auth', 'verified'])->name('checkout');
+
+Route::get('/add-subscription', [ControllerSubscription::class, 'createSubscriptions'])
+    ->middleware(['auth', 'verified'])
+    ->name('add-subscription');
 
 // add category
 Route::get('/add-category', function (){
@@ -58,8 +64,19 @@ Route::post('/insert-category', [Cateogy::class, 'insertCategory'])->middleware(
 //  return view('admin/add-product');
 //})->middleware(['auth', 'verified'])->name('add-product');
 
-Route::get('/add-product', [ControllerProduct::class, 'viewProduct'])->middleware(['auth', 'verified'])->name('add-product');
-Route::post('/save-product', [ControllerProduct::class, 'saveProduct'])->middleware(['auth', 'verified'])->name('save-product');
+Route::get('/add-product', [ControllerProduct::class, 'viewProduct'])
+    ->middleware(['auth', 'verified'])
+    ->name('add-product');
+Route::post('/save-product', [ControllerProduct::class, 'saveProduct'])
+    ->middleware(['auth', 'verified'])
+    ->name('save-product');
+
+Route::get('/admin/add-price', [ControllerProduct::class, 'addPrice'])
+  ->middleware(['auth', 'verified'])
+  ->name('/admin/add-price');
+Route::post('/admin/save-price', [ControllerProduct::class, 'savePrice'])
+  ->middleware(['auth', 'verified'])
+  ->name('admin/save-price');
 
 //=== test
 Route::get('/create', [createSubscription::class, 'createProduct'])->middleware(['auth', 'verified'])->name('create');

@@ -64,7 +64,7 @@
 
                   <div class="py-4 pb-5 px-3">
 
-                    <form action="{{url('checkout')}}" method="post">
+                    <form action="{{route('checkout')}}" method="post">
                       @csrf
                       <div class="dashboard-loader-wrapper min-h-full flex align-middle justify-center">
                         <div class="spinner">
@@ -90,15 +90,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="chicken" data-name="Chicken - Autumn" data-image-name="chicken.png"
-                                          data-unitprice="150">Chicken
-                                  </option>
-                                  <option value="pork" data-name="Pork - winter" data-image-name="pork.png"
-                                          data-unitprice="650">Pork
-                                  </option>
-                                  <option value="lamb" data-name="Lamb - winter" data-image-name="lamb.png"
-                                          data-unitprice="800">Lamb
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 
@@ -129,7 +128,7 @@
                                   <p class="font-medium text-gray-900 m-0">
                                     <span class="icon-currency">&euro;</span>
                                     <span class="unit-price unit-price-js"></span>/<span class="unit"
-                                                                                         style="font-size: 13px">kg</span>
+                                                                                         style="font-size: 13px">ps</span>
                                     X <span class="item-quantity">1</span>
                                     = <span class="icon-currency">&euro;</span> <span
                                       class="item-total-price-js"></span>
@@ -174,15 +173,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="chicken" data-name="Chicken - Autumn" data-image-name="chicken.png"
-                                          data-unitprice="150">Chicken
-                                  </option>
-                                  <option value="pork" data-name="Pork - winter" data-image-name="pork.png"
-                                          data-unitprice="650">Pork
-                                  </option>
-                                  <option value="lamb" data-name="Lamb - winter" data-image-name="lamb.png"
-                                          data-unitprice="800">Lamb
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 
@@ -213,7 +211,7 @@
                                   <p class="font-medium text-gray-900 m-0">
                                     <span class="icon-currency">&euro;</span>
                                     <span class="unit-price unit-price-js"></span>/<span class="unit"
-                                                                                         style="font-size: 13px">kg</span>
+                                                                                         style="font-size: 13px">ps</span>
                                     X <span class="item-quantity">1</span>
                                     = <span class="icon-currency">&euro;</span> <span
                                       class="item-total-price-js"></span>
@@ -258,15 +256,14 @@
                                 <select name="pick-item"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
-                                  <option value="chicken" data-name="Chicken - Autumn" data-image-name="chicken.png"
-                                          data-unitprice="150">Chicken
-                                  </option>
-                                  <option value="pork" data-name="Pork - winter" data-image-name="pork.png"
-                                          data-unitprice="650">Pork
-                                  </option>
-                                  <option value="lamb" data-name="Lamb - winter" data-image-name="lamb.png"
-                                          data-unitprice="800">Lamb
-                                  </option>
+                                  @foreach($products as $product)
+                                    <option value="{{$product->stripe_id}}"
+                                            data-name="{{$product->name}}"
+                                            data-image-name="{{$product->image_url}}"
+                                            data-unitprice="{{$product->unit_price}}">
+                                      {{$product->name}}
+                                    </option>
+                                  @endforeach
                                 </select>
                               </div>
 
@@ -297,7 +294,7 @@
                                   <p class="font-medium text-gray-900 m-0">
                                     <span class="icon-currency">&euro;</span>
                                     <span class="unit-price unit-price-js"></span>/<span class="unit"
-                                                                                         style="font-size: 13px">kg</span>
+                                                                                         style="font-size: 13px">ps</span>
                                     X <span class="item-quantity">1</span>
                                     = <span class="icon-currency">&euro;</span> <span
                                       class="item-total-price-js"></span>

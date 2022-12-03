@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Price;
 
 class ControllerProduct extends Controller
 {
@@ -50,5 +51,50 @@ class ControllerProduct extends Controller
         ->with('error','Something went wrong! Try again.')
         ->withInput();
 //      dd($filePath);
+    }
+
+    public function addPrice(){
+      $products = new Product;
+      $products = $products->where('is_active', 1)->get();
+      return view('admin/add-price', compact('products'));
+    }
+
+  /**
+   * @throws \Stripe\Exception\ApiErrorException
+   */
+  public function savePrice(Request $request){
+      $stripe = new \Stripe\StripeClient(
+        env('STRIPE_SECRET')
+      );
+      $unitPrice = Product::where('is_active', 1)
+        ->where('stripe_id', $request->stripe_product)
+        ->first()->unit_price;
+      $unitAmount = round(($unitPrice/$request->recurring_iteration), 2)*100;
+      $objPriceCreated = $stripe->prices->create([
+        'unit_amount' => $unitAmount,
+        'currency' => 'eur',
+        'recurring' => ['interval' => $request->recurring_interval],
+        'product' => $request->stripe_product,
+      ]);
+
+      if(!$objPriceCreated) return back()
+        ->with('error','Something went wrong! Try again.');
+
+      $prices = new Price;
+
+      $prices->stripe_id = $objPriceCreated->id;
+      $prices->stripe_product = $objPriceCreated->product;
+      $prices->unit_price = $objPriceCreated->unit_amount;
+      $prices->recurring_interval = $objPriceCreated->recurring->interval;
+      $prices->interval_count = $objPriceCreated->recurring->interval_count;
+      $prices->recurring_iteration = $request->recurring_iteration;
+      $status = $prices->save();
+
+      if(!$status) return back()
+        ->with('error','Something went wrong! Try again.');
+
+      return back()
+        ->with('success','A price has been attached to the product!');
+//      dd($request);
     }
 }
