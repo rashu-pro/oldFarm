@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 11:28 AM
+-- Generation Time: Dec 03, 2022 at 11:05 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -44,9 +44,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `excerpt`, `description`, `slug`, `image_url`, `is_active`, `created_at`, `updated_at`) VALUES
-(7, 'Animal', NULL, NULL, 'animal', NULL, 1, '2022-11-26 07:12:17', '2022-11-26 07:12:17'),
-(8, 'Vegetable', NULL, NULL, 'vegetable', NULL, 1, '2022-11-26 07:15:07', '2022-11-26 07:15:07'),
-(9, 'Fruit', NULL, NULL, 'fruit', NULL, 1, '2022-11-26 07:17:17', '2022-11-26 07:17:17');
+(7, 'Animal', NULL, NULL, 'animals', NULL, 1, '2022-11-26 07:12:17', '2022-11-26 07:12:17'),
+(8, 'Vegetable', NULL, NULL, 'vegetables', NULL, 1, '2022-11-26 07:15:07', '2022-11-26 07:15:07'),
+(9, 'Fruit', NULL, NULL, 'fruits', NULL, 1, '2022-11-26 07:17:17', '2022-11-26 07:17:17');
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2022_11_14_191635_products', 3),
 (9, '2022_11_14_194759_categories', 3),
 (10, '2022_11_26_111107_categories', 4),
-(11, '2022_11_26_135152_products', 5);
+(11, '2022_11_26_135152_products', 5),
+(12, '2022_12_02_174334_price', 6),
+(13, '2022_12_02_185054_price', 7),
+(14, '2022_12_03_115914_price', 8),
+(15, '2022_12_03_124136_price', 9),
+(16, '2022_12_03_130256_subscriptions', 10),
+(17, '2022_12_03_145837_prices', 11);
 
 -- --------------------------------------------------------
 
@@ -123,6 +129,43 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prices`
+--
+
+CREATE TABLE `prices` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unit_price` decimal(8,2) NOT NULL,
+  `recurring_interval` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `interval_count` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `sub_sched_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `start_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `end_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `recurring_iteration` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `prices`
+--
+
+INSERT INTO `prices` (`id`, `stripe_id`, `stripe_product`, `unit_price`, `recurring_interval`, `interval_count`, `created_at`, `updated_at`, `sub_sched_id`, `start_date`, `end_date`, `recurring_iteration`) VALUES
+(4, 'price_1MAxD9GynPrdxMfb9uq8ajBC', 'prod_MtLmFL6ZsGI14y', '1667.00', 'month', 1, '2022-12-03 09:01:03', '2022-12-03 09:01:03', NULL, NULL, NULL, 3),
+(5, 'price_1MAxGDGynPrdxMfbbTkd3HBW', 'prod_MtLtgwdPvm9g2E', '6667.00', 'month', 1, '2022-12-03 09:04:14', '2022-12-03 09:04:14', NULL, NULL, NULL, 6),
+(6, 'price_1MAxGOGynPrdxMfbIovKOpGo', 'prod_MtLul134h4TkGF', '12500.00', 'month', 1, '2022-12-03 09:04:24', '2022-12-03 09:04:24', NULL, NULL, NULL, 8),
+(7, 'price_1MAxGZGynPrdxMfb69JyPlOU', 'prod_MtLuamWbh70cj7', '10000.00', 'month', 1, '2022-12-03 09:04:35', '2022-12-03 09:04:35', NULL, NULL, NULL, 6),
+(8, 'price_1MAxGpGynPrdxMfbf1y2GjhC', 'prod_MtLv6txh8mybqa', '333.00', 'week', 1, '2022-12-03 09:04:52', '2022-12-03 09:04:52', NULL, NULL, NULL, 6),
+(9, 'price_1MAxKTGynPrdxMfb5GTvXDVK', 'prod_MtLvJ1MCaOcDkR', '750.00', 'week', 1, '2022-12-03 09:08:37', '2022-12-03 09:08:37', NULL, NULL, NULL, 4),
+(10, 'price_1MAxKhGynPrdxMfbBjyXGGtB', 'prod_MtLwMtwEvllet8', '333.00', 'week', 1, '2022-12-03 09:08:51', '2022-12-03 09:08:51', NULL, NULL, NULL, 6),
+(11, 'price_1MAxL0GynPrdxMfbcNsxMuN2', 'prod_MtLmFL6ZsGI14y', '1250.00', 'month', 1, '2022-12-03 09:09:10', '2022-12-03 09:09:10', NULL, NULL, NULL, 4),
+(12, 'price_1MAxLBGynPrdxMfbTMsK2x6A', 'prod_MtLqPKOzVurda6', '667.00', 'month', 1, '2022-12-03 09:09:21', '2022-12-03 09:09:21', NULL, NULL, NULL, 6),
+(13, 'price_1MAxLQGynPrdxMfbhsvz1TTN', 'prod_MtLruj7irgqRru', '750.00', 'month', 1, '2022-12-03 09:09:36', '2022-12-03 09:09:36', NULL, NULL, NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -186,6 +229,9 @@ CREATE TABLE `subscriptions` (
   `quantity` int(11) DEFAULT NULL,
   `trial_ends_at` timestamp NULL DEFAULT NULL,
   `ends_at` timestamp NULL DEFAULT NULL,
+  `scheduled_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `start_date` timestamp NULL DEFAULT NULL,
+  `end_date` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -194,20 +240,20 @@ CREATE TABLE `subscriptions` (
 -- Dumping data for table `subscriptions`
 --
 
-INSERT INTO `subscriptions` (`id`, `user_id`, `name`, `stripe_id`, `stripe_status`, `stripe_price`, `quantity`, `trial_ends_at`, `ends_at`, `created_at`, `updated_at`) VALUES
-(2, 1, 'default', 'sub_1M3G4sGynPrdxMfbhzwPT7vZ', 'active', 'price_1M3FcUGynPrdxMfb4ESC18F2', 1, NULL, NULL, '2022-11-12 03:32:42', '2022-11-12 03:32:45'),
-(3, 1, 'default', 'sub_1M3GB4GynPrdxMfbMdwCv9nZ', 'active', 'price_1M3GB2GynPrdxMfbp6cROhEn', 1, NULL, NULL, '2022-11-12 03:39:06', '2022-11-12 03:39:09'),
-(4, 1, 'default', 'sub_1M3GBBGynPrdxMfbWyxF9gOs', 'active', 'price_1M3GB9GynPrdxMfbauNlSwqG', 1, NULL, NULL, '2022-11-12 03:39:12', '2022-11-12 03:39:15'),
-(5, 1, 'default', 'sub_1M3GBHGynPrdxMfbZtRgais7', 'active', 'price_1M3GBFGynPrdxMfbRKv5rcZU', 1, NULL, NULL, '2022-11-12 03:39:19', '2022-11-12 03:39:21'),
-(6, 1, 'default', 'sub_1M3GFSGynPrdxMfbdhdRPsEa', 'active', 'price_1M3GFQGynPrdxMfb0fUdDK9r', 5, NULL, NULL, '2022-11-12 03:43:38', '2022-11-12 03:43:56'),
-(7, 1, 'default', 'sub_1M3GFZGynPrdxMfbbLHiNibp', 'active', 'price_1M3GFXGynPrdxMfbXLqFWpT2', 1, NULL, NULL, '2022-11-12 03:43:45', '2022-11-12 03:43:48'),
-(8, 1, 'default', 'sub_1M3GFgGynPrdxMfbYUJ99UNq', 'active', 'price_1M3GFfGynPrdxMfbthKlJ5kp', 1, NULL, NULL, '2022-11-12 03:43:52', '2022-11-12 03:43:55'),
-(9, 1, 'default', 'sub_1M3M7rGynPrdxMfblHTVyOa9', 'active', 'price_1M3M7pGynPrdxMfbMpDBPzFH', 1, NULL, NULL, '2022-11-12 10:00:11', '2022-11-12 10:00:14'),
-(10, 1, 'default', 'sub_1M3MDYGynPrdxMfbu1NweZCF', 'active', 'price_1M3MDTGynPrdxMfb2DaUNQsf', 1, NULL, NULL, '2022-11-12 10:06:04', '2022-11-12 10:06:04'),
-(11, 1, 'default', 'sub_1M3MLLGynPrdxMfblJgZaoYK', 'active', 'price_1M3MLJGynPrdxMfbkTBujN87', 5, NULL, NULL, '2022-11-12 10:14:07', '2022-11-12 10:14:10'),
-(12, 3, 'default', 'sub_1M3MtzGynPrdxMfbpHc1Jb2H', 'active', 'price_1M3MtxGynPrdxMfbnC9Fjged', 2, NULL, NULL, '2022-11-12 10:49:55', '2022-11-12 10:49:57'),
-(13, 3, 'default', 'sub_1M3P5uGynPrdxMfb2kPl4EMd', 'active', 'price_1M3P5sGynPrdxMfbn9SI3DCg', 1, NULL, NULL, '2022-11-12 13:10:23', '2022-11-12 13:10:26'),
-(14, 4, 'default', 'sub_1M3PCpGynPrdxMfb3J7HFXMr', 'active', 'price_1M3PCmGynPrdxMfbu0pYBqHn', 1, NULL, NULL, '2022-11-12 13:17:32', '2022-11-12 13:17:34');
+INSERT INTO `subscriptions` (`id`, `user_id`, `name`, `stripe_id`, `stripe_status`, `stripe_price`, `quantity`, `trial_ends_at`, `ends_at`, `scheduled_id`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES
+(2, 1, 'default', 'sub_1M3G4sGynPrdxMfbhzwPT7vZ', 'active', 'price_1M3FcUGynPrdxMfb4ESC18F2', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 03:32:42', '2022-11-12 03:32:45'),
+(3, 1, 'default', 'sub_1M3GB4GynPrdxMfbMdwCv9nZ', 'active', 'price_1M3GB2GynPrdxMfbp6cROhEn', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 03:39:06', '2022-11-12 03:39:09'),
+(4, 1, 'default', 'sub_1M3GBBGynPrdxMfbWyxF9gOs', 'active', 'price_1M3GB9GynPrdxMfbauNlSwqG', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 03:39:12', '2022-11-12 03:39:15'),
+(5, 1, 'default', 'sub_1M3GBHGynPrdxMfbZtRgais7', 'active', 'price_1M3GBFGynPrdxMfbRKv5rcZU', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 03:39:19', '2022-11-12 03:39:21'),
+(6, 1, 'default', 'sub_1M3GFSGynPrdxMfbdhdRPsEa', 'active', 'price_1M3GFQGynPrdxMfb0fUdDK9r', 5, NULL, NULL, NULL, NULL, NULL, '2022-11-12 03:43:38', '2022-11-12 03:43:56'),
+(7, 1, 'default', 'sub_1M3GFZGynPrdxMfbbLHiNibp', 'active', 'price_1M3GFXGynPrdxMfbXLqFWpT2', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 03:43:45', '2022-11-12 03:43:48'),
+(8, 1, 'default', 'sub_1M3GFgGynPrdxMfbYUJ99UNq', 'active', 'price_1M3GFfGynPrdxMfbthKlJ5kp', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 03:43:52', '2022-11-12 03:43:55'),
+(9, 1, 'default', 'sub_1M3M7rGynPrdxMfblHTVyOa9', 'active', 'price_1M3M7pGynPrdxMfbMpDBPzFH', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 10:00:11', '2022-11-12 10:00:14'),
+(10, 1, 'default', 'sub_1M3MDYGynPrdxMfbu1NweZCF', 'active', 'price_1M3MDTGynPrdxMfb2DaUNQsf', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 10:06:04', '2022-11-12 10:06:04'),
+(11, 1, 'default', 'sub_1M3MLLGynPrdxMfblJgZaoYK', 'active', 'price_1M3MLJGynPrdxMfbkTBujN87', 5, NULL, NULL, NULL, NULL, NULL, '2022-11-12 10:14:07', '2022-11-12 10:14:10'),
+(12, 3, 'default', 'sub_1M3MtzGynPrdxMfbpHc1Jb2H', 'active', 'price_1M3MtxGynPrdxMfbnC9Fjged', 2, NULL, NULL, NULL, NULL, NULL, '2022-11-12 10:49:55', '2022-11-12 10:49:57'),
+(13, 3, 'default', 'sub_1M3P5uGynPrdxMfb2kPl4EMd', 'active', 'price_1M3P5sGynPrdxMfbn9SI3DCg', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 13:10:23', '2022-11-12 13:10:26'),
+(14, 4, 'default', 'sub_1M3PCpGynPrdxMfb3J7HFXMr', 'active', 'price_1M3PCmGynPrdxMfbu0pYBqHn', 1, NULL, NULL, NULL, NULL, NULL, '2022-11-12 13:17:32', '2022-11-12 13:17:34');
 
 -- --------------------------------------------------------
 
@@ -271,7 +317,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `stripe_id`, `pm_type`, `pm_last_four`, `trial_ends_at`) VALUES
-(1, 'rashu', 'rashu.pro@gmail.com', NULL, '$2y$10$m21vucATN67cbkbLXUrSpOwrmWkorXHBtSo59fZHFJ.ndFPRJIrie', 'XSQYzbsAJH5tbObysk5sy1pNEwJmqEOcjoSTa7NqrUeytjwy7zQH2Cc1tilB', '2022-11-03 14:05:55', '2022-11-12 03:22:51', 'cus_MmpaanMdlPPKcs', 'card', '4242', NULL),
+(1, 'rashu', 'rashu.pro@gmail.com', NULL, '$2y$10$m21vucATN67cbkbLXUrSpOwrmWkorXHBtSo59fZHFJ.ndFPRJIrie', 'HhExiBBNf2MTwnCenQYLuydsS9Vn9zqM9bThYrAsmzSoMlJb5SHEU7GiPPTu', '2022-11-03 14:05:55', '2022-11-12 03:22:51', 'cus_MmpaanMdlPPKcs', 'card', '4242', NULL),
 (2, 'New User', '', NULL, '', NULL, NULL, '2022-11-11 05:05:27', 'cus_MkJjhqtLT00ldi', 'Visa credit card', NULL, NULL),
 (3, 'test user', 'rashu.web@gmail.com', NULL, '$2y$10$kx0n/kKOvzAiQFYcP6QkGeSYowxBXJ7Hfv2PMrGKFRb0sYeB0vm8O', NULL, '2022-11-12 10:38:12', '2022-11-12 10:49:51', 'cus_Mmwny4g9Nt0ZVs', 'card', '5556', NULL),
 (4, 'new user', 'rashu@mail.com', NULL, '$2y$10$uEacDiyPPDpBBfeX80RTUuL/bfi5RXNkX3e5nd7bvZ.raUkAG2f2y', NULL, '2022-11-12 13:11:47', '2022-11-12 13:17:28', 'cus_MmzBRT6mvLNVst', 'card', '1111', NULL);
@@ -315,6 +361,13 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `prices`
+--
+ALTER TABLE `prices`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `price_stripe_id_unique` (`stripe_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -329,6 +382,7 @@ ALTER TABLE `products`
 ALTER TABLE `subscriptions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `subscriptions_stripe_id_unique` (`stripe_id`),
+  ADD UNIQUE KEY `subscriptions_scheduled_id_unique` (`scheduled_id`),
   ADD KEY `subscriptions_user_id_stripe_status_index` (`user_id`,`stripe_status`);
 
 --
@@ -367,13 +421,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `prices`
+--
+ALTER TABLE `prices`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `products`

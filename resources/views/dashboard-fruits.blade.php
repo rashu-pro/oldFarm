@@ -87,7 +87,7 @@
                           <div class="col-md-4">
                             <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
                               <div class="dashboard-box-head pt-3 pb-2 px-2">
-                                <select name="pick-item"
+                                <select name="pick-item[]"
                                         name="ProductName"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
@@ -170,7 +170,7 @@
                           <div class="col-md-4">
                             <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
                               <div class="dashboard-box-head pt-3 pb-2 px-2">
-                                <select name="pick-item"
+                                <select name="pick-item[]"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
                                   @foreach($products as $product)
@@ -252,7 +252,7 @@
                           <div class="col-md-4">
                             <div class="dashboard-box item-box rounded-md bg-white border border-gray-200">
                               <div class="dashboard-box-head pt-3 pb-2 px-2">
-                                <select name="pick-item"
+                                <select name="pick-item[]"
                                         class="choose-item-js w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   <option>Choose item</option>
                                   @foreach($products as $product)

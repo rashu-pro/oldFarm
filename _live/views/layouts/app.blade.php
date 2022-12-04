@@ -12,7 +12,7 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-  <link rel="stylesheet" href="public/build/assets/app.c8bf4498.css">
+  <link rel="stylesheet" href="/public/build/assets/app.c8bf4498_.css">
 
 
 </head>
@@ -56,6 +56,6 @@
   </div>
 </div>
 
-<script src="public/build/assets/app.e186ac29.js"></script>
+<script src="/public/build/assets/app.e186ac29.js"></script>
 </body>
 </html>

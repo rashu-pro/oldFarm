@@ -16,7 +16,7 @@
   <!-- main wrapper -->
   <div class="main-wrapper">
     <div class="container">
-      <form id="checkout-form" method="post" action="{{url('/add-subscription')}}">
+      <form id="checkout-form" method="post" action="{{route('add-subscription')}}">
         @csrf
         <div class="grid grid-cols-2 gap-4 bg-white rounded-lg border border-gray-300">
           <div class="form-div px-12 py-8">
@@ -187,11 +187,15 @@
 
                     </div>
 
-                    <input type="hidden" name="ProductName[]"
+                    <input type="hidden" name="productName[]"
                            value="{{request()->post()['PickedProductName'][$count]}}">
-                    <input type="hidden" name="ProductQuantity[]"
+                    <input type="hidden"
+                           name="stripe_id[]"
+                           value="{{request()->post()['pick-item'][$count]}}"
+                    >
+                    <input type="hidden" name="productQuantity[]"
                            value="{{request()->post()['PickedProductQuantity'][$count]}}">
-                    <input type="hidden" name="ProductUnitPrice[]"
+                    <input type="hidden" name="productUnitPrice[]"
                            value="{{request()->post()['PickedProductUnitPrice'][$count]}}">
                     <hr>
                   </div>
@@ -227,8 +231,9 @@
 
 
             <div class="mt-4">
-              <x-primary-button type="button" class="bg-black btn-checkout-form-js">
-                Subscribe (total- &euro;{{ $total }})
+              <x-primary-button type="submit" class="bg-black btn-checkout-form-js">
+{{--                Subscribe (total- &euro;{{ $total }})--}}
+                Order Now
               </x-primary-button>
               <div class="mt-1">
 {{--                <p class="text-success font-medium">Automatic monthly payment</p>--}}

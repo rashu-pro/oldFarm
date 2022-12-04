@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout class="dashboard-home">
   <div class="">
     <!-- main wrapper -->
     <div class="main-wrapper">

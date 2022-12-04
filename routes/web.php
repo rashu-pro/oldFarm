@@ -49,9 +49,15 @@ Route::post('/checkout', [ControllerCheckout::class, 'viewCheckout'])
 //  return view('checkout');
 //})->middleware(['auth', 'verified'])->name('checkout');
 
-Route::get('/add-subscription', [ControllerSubscription::class, 'createSubscriptions'])
+Route::post('/add-subscription', [ControllerSubscription::class, 'createSubscriptions'])
     ->middleware(['auth', 'verified'])
     ->name('add-subscription');
+
+Route::get('/thank-you', function () {
+  return view('thank-you');
+})->middleware(['auth', 'verified'])
+  ->name('thank-you');
+
 
 // add category
 Route::get('/add-category', function (){
