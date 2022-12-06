@@ -26,7 +26,7 @@
                       <p class="m-0">Something went wrong! Please try again.</p>
                     </div>
                   </div>
-                @endif;
+                @endif
 
                 @if (session('status'))
                   @if(session('status')=='success')

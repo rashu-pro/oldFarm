@@ -1,24 +1,11 @@
 <x-app-layout>
 
-  <!-- page title -->
-  {{--<div class="page-title" style="background-image: url(images/marketplace-page-title.jpg)">--}}
-  {{--<div class="container">--}}
-  {{--<div class="page-title-inner text-center">--}}
-  {{--<h2>Checkout</h2>--}}
-  {{--<ul class="nav justify-content-center">--}}
-  {{--<li class="nav-item"><a href="#" class="nav-link">Home</a> </li>--}}
-  {{--<li class="nav-item"><a href="#" class="nav-link">Checkout</a> </li>--}}
-  {{--</ul>--}}
-  {{--</div>--}}
-  {{--</div>--}}
-  {{--</div>--}}
-
   <!-- main wrapper -->
-  <div class="main-wrapper">
+  <div class="main-wrapper pt-5 pt-sm-0">
     <div class="container">
       <form id="checkout-form" method="post" action="{{route('add-subscription')}}">
         @csrf
-        <div class="grid grid-cols-2 gap-4 bg-white rounded-lg border border-gray-300">
+        <div class="grid sm:grid-cols-2 sm:gap-4 bg-white rounded-lg border border-gray-300">
           <div class="form-div px-12 py-8">
             <div class="form-group pb-6">
               <h2 class="mb-2">Contact Information</h2>
@@ -58,8 +45,8 @@
                 </div>
 
                 <div class="">
-                  <div class="flex flex-row">
-                    <div class="basis-1/3 pr-3">
+                  <div class="sm:flex sm:flex-row">
+                    <div class="sm:basis-1/3 sm:pr-3">
                       <div class="field-group mb-4">
                         <x-input-label for="exp-month" value="Expiry Month"/>
                         <select name="expMonth"
@@ -81,7 +68,7 @@
                       </div>
                     </div>
 
-                    <div class="basis-1/3 pr-3">
+                    <div class="sm:basis-1/3 sm:pr-3">
                       <div class="field-group mb-4">
                         <x-input-label for="exp-year" value="Expiry Year"/>
 
@@ -102,7 +89,7 @@
                       </div>
                     </div>
 
-                    <div class="basis-1/3">
+                    <div class="sm:basis-1/3">
                       <div class="field-group mb-4">
                         <x-input-label for="cvc" value="CVV"/>
                         <x-text-input id="cvc"
@@ -136,8 +123,8 @@
               </div>
 
               <div class="">
-                <div class="flex flex-row">
-                  <div class="basis-1/3 pr-3">
+                <div class="sm:flex sm:flex-row">
+                  <div class="sm:basis-1/3 sm:pr-3">
                     <div class="field-group mb-4">
                       <x-input-label for="city" value="City"/>
                       <x-text-input id="city"
@@ -147,7 +134,7 @@
                     </div>
                   </div>
 
-                  <div class="basis-1/3 pr-3">
+                  <div class="sm:basis-1/3 sm:pr-3">
                     <div class="field-group mb-4">
                       <x-input-label for="State" value="State"/>
                       <x-text-input id="state" class="field-required block mt-1 w-full"
@@ -157,7 +144,7 @@
                     </div>
                   </div>
 
-                  <div class="basis-1/3">
+                  <div class="sm:basis-1/3">
                     <div class="field-group mb-4">
                       <x-input-label for="post-code" value="Post Code"/>
                       <x-text-input id="cvv" class="field-required block mt-1 w-full"
