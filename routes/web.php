@@ -41,9 +41,10 @@ Route::get('/dashboard-fruits', [ControllerViewProduct::class, 'viewProducts'])
   ->middleware(['auth', 'verified'])
   ->name('dashboard-fruits');
 
-Route::post('/checkout', [ControllerCheckout::class, 'viewCheckout'])
+Route::get('/checkout', [ControllerCheckout::class, 'viewCheckout'])
     ->middleware(['auth', 'verified'])
     ->name('checkout');
+
 
 //Route::post('/checkout', function () {
 //  return view('checkout');

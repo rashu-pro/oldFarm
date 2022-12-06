@@ -7,6 +7,13 @@
       </a>
     </x-slot>
 
+    <!-- //=== FORM TITLE -->
+    <div class="text-center mt-3 mb-3">
+      <h4 class="section-title">
+        <span class="section-title-text text-success font-weight-bold">Login</span>
+      </h4>
+    </div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')"/>
 

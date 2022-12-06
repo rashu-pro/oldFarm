@@ -12,11 +12,12 @@ class ControllerCheckout extends Controller
       $stripe = new \Stripe\StripeClient(
         env('STRIPE_SECRET')
       );
-
-      $hasPaymentMethod = [
-        'status' =>false
-      ];
       $isCustomer = User::find(Auth::id());
+      $hasPaymentMethod = [
+        'status' =>false,
+        'email' => $isCustomer->email,
+        'address' => $isCustomer->address
+      ];
       if(!$isCustomer->stripe_id) return view('checkout', compact('hasPaymentMethod'));
 
       $customerStripe = $stripe->customers->retrieve(
@@ -29,7 +30,9 @@ class ControllerCheckout extends Controller
       );
       $hasPaymentMethod = [
         'status' =>true,
-        'last4' => $paymentMethod->card->last4
+        'last4' => $paymentMethod->card->last4,
+        'email' => $isCustomer->email,
+        'address' => $isCustomer->address
       ];
       return view('checkout', compact('hasPaymentMethod'));
     }

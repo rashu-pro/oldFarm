@@ -22,6 +22,30 @@ class ControllerSubscription extends Controller
 
       $count = 0;
       $customer = User::find(Auth::id())->stripe_id;
+      if(!$customer){
+        $objPaymentMethod = $stripe->paymentMethods->create([
+          'type' => 'card',
+          'card' => [
+            'number' => $request->cardNumber,
+            'exp_month' => $request->expMonth,
+            'exp_year' => $request->expYear,
+            'cvc' => $request->cvc,
+          ]
+        ]);
+
+        $objCustomer = $stripe->customers->create([
+          "payment_method" => $objPaymentMethod->id,
+          "invoice_settings" => [
+            "default_payment_method" => $objPaymentMethod->id]
+        ]);
+
+        $user = User::find(Auth::id());
+        $user->stripe_id = $objCustomer->id;
+        $user->save();
+
+        $customer = User::find(Auth::id())->stripe_id;
+      }
+
       foreach ($request->stripe_id as $product){
         $price = Price::where('stripe_product', $product)
           ->latest()
@@ -81,5 +105,9 @@ class ControllerSubscription extends Controller
     public function thankyou(){
       $subscriptions = Subscriptions::where('user_id', Auth::id());
       return view('thank-you', compact('subscriptions'));
+    }
+
+    public function redirectCheckout(){
+      return view('checkout');
     }
 }

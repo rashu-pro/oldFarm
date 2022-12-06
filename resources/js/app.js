@@ -146,4 +146,143 @@ function calculateItemTotal(quantity, itemBox) {
   itemBox.querySelector('.item-total-price-js').innerHTML = itemTotalPrice.toFixed(2);
 }
 
+// checkout form validation
+document.querySelector('.btn-checkout-form-js').addEventListener('click', (e)=>{
+  e.preventDefault();
+  card_validation();
 
+  document.querySelectorAll('.field-required').forEach(field=>{
+
+    let warningMessage = document.createElement('p');
+    warningMessage.classList.add('text-danger');
+    warningMessage.append('The field is required!');
+
+    if(field.getAttribute('data-validation')==='required'){
+      if(!field.value.length>0){
+        field.classList.add('invalid');
+        if(field.closest('.field-group').querySelector('.text-danger')){
+          field.closest('.field-group').querySelector('.text-danger').remove();
+        }
+        field.closest('.field-group').append(warningMessage);
+      }else{
+        if(field.classList.contains('invalid')){
+          field.classList.remove('invalid');
+        }
+
+        if(field.closest('.field-group').querySelector('.text-danger')){
+          field.closest('.field-group').querySelector('.text-danger').remove();
+        }
+      }
+    }
+
+    //email validation
+    if(field.getAttribute('data-validation')==='email'){
+      if(!/\S+@\S+\.\S+/.test(field.value)){
+        if(field.closest('.field-group').querySelector('.text-danger')){
+          field.closest('.field-group').querySelector('.text-danger').remove();
+        }
+        field.closest('.field-group').append(warningMessage);
+      }else{
+        if(field.classList.contains('invalid')){
+          field.classList.remove('invalid');
+        }
+
+        if(field.closest('.field-group').querySelector('.text-danger')){
+          field.closest('.field-group').querySelector('.text-danger').remove();
+        }
+      }
+    }
+
+    //cvc validation
+    if(field.getAttribute('data-validation')==='cvc'){
+      if(!/^\d{3}$/.test(field.value)){
+        field.classList.add('invalid');
+        if(field.closest('.field-group').querySelector('.text-danger')){
+          field.closest('.field-group').querySelector('.text-danger').remove();
+        }
+        field.closest('.field-group').append(warningMessage);
+      }else{
+        if(field.classList.contains('invalid')){
+          field.classList.remove('invalid');
+        }
+
+        if(field.closest('.field-group').querySelector('.text-danger')){
+          field.closest('.field-group').querySelector('.text-danger').remove();
+        }
+      }
+    }
+
+  })
+
+  document.querySelectorAll('.select-required').forEach(field=>{
+    let warningMessage = document.createElement('p');
+    warningMessage.classList.add('text-danger');
+    warningMessage.append('The field is required!');
+    if(field.value===''){
+      if(field.closest('.field-group').querySelector('.text-danger')){
+        field.closest('.field-group').querySelector('.text-danger').remove();
+      }
+      field.closest('.field-group').append(warningMessage);
+    }else{
+      if(field.classList.contains('invalid')){
+        field.classList.remove('invalid');
+      }
+
+      if(field.closest('.field-group').querySelector('.text-danger')){
+        field.closest('.field-group').querySelector('.text-danger').remove();
+      }
+    }
+  })
+
+  if(document.querySelector('.invalid'))
+    document.querySelector('.invalid').focus();
+
+  if(document.querySelector('.invalid')) return;
+
+  document.querySelector('#checkout-form').submit();
+
+})
+
+// cc validation
+let J = Payment.J;
+let creditCardField = document.querySelector('#card-number');
+creditCardField.addEventListener('keyup', (e)=>{
+  card_validation();
+})
+
+/**
+ * validates vard number
+ */
+function card_validation() {
+  let warningMessage = document.createElement('p');
+  warningMessage.classList.add('text-danger');
+  warningMessage.append('The field is required!');
+
+  let number = document.querySelector('#card-number');
+  Payment.formatCardNumber(number);
+  J.toggleClass(document.querySelectorAll('input'), 'invalid');
+  let cardType = Payment.fns.cardType(J.val(number));
+  // J.toggleClass(number, 'invalid', !Payment.fns.validateCardNumber(J.val(number)));
+  if (cardType) {
+    creditCardField.classList.add(cardType);
+  } else {
+    console.log('no card selected');
+  }
+  if (Payment.fns.validateCardNumber(J.val(number))) {
+    if(creditCardField.classList.contains('invalid')){
+      creditCardField.classList.remove('invalid');
+    }
+    creditCardField.classList.add('valid');
+
+    if(creditCardField.closest('.field-group').querySelector('.text-danger')){
+      creditCardField.closest('.field-group').querySelector('.text-danger').remove();
+    }
+  } else {
+    creditCardField.classList.add('invalid');
+    creditCardField.classList.remove('valid');
+    if(creditCardField.closest('.field-group').querySelector('.text-danger')){
+      creditCardField.closest('.field-group').querySelector('.text-danger').remove();
+    }
+    creditCardField.closest('.field-group').append(warningMessage);
+  }
+}

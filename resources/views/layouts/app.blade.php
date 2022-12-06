@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
   <!-- Scripts -->
-  @vite(['resources/css/app.css', 'resources/css/temp.css', 'resources/js/app.js'])
+  @vite(['resources/css/app.css', 'resources/css/temp.css','resources/js/card_validation.js', 'resources/js/app.js'])
 
 </head>
 <body class="font-sans antialiased">

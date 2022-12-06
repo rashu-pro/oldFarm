@@ -22,9 +22,14 @@
           <div class="form-div px-12 py-8">
             <div class="form-group pb-6">
               <h2 class="mb-2">Contact Information</h2>
-              <x-input-label for="contact-email" class="" value="Email"/>
-              <x-text-input id="contact-email" class="block mt-1 w-full"
-                            type="email" name="EmailBilling" required/>
+              <div class="field-group">
+                <x-input-label for="contact-email" class="" value="Email"/>
+                <x-text-input id="contact-email"
+                              class="field-required block mt-1 w-full"
+                              data-validation="email"
+                              type="email" name="EmailBilling" value="{{$hasPaymentMethod['email']}}"/>
+              </div>
+
             </div>
 
             <div class="form-group pb-4">
@@ -37,41 +42,73 @@
                 </div>
 
                 @else
-                <div class="mb-4">
+                <div class="field-group mb-4">
                   <x-input-label for="card-holder-name" value="Name on Card"/>
-                  <x-text-input id="card-holder-name" class="block mt-1 w-full"
+                  <x-text-input id="card-holder-name"
+                                class="field-required block mt-1 w-full"
+                                data-validation="required"
                                 type="text" name="nameOnCard" required/>
                 </div>
 
-                <div class="mb-4">
+                <div class="field-group mb-4">
                   <x-input-label for="card-number" value="Card Number"/>
                   <x-text-input id="card-number" class="block mt-1 w-full"
-                                type="text" name="cardNumber" required/>
+                                type="text"
+                                name="cardNumber" required/>
                 </div>
 
                 <div class="">
                   <div class="flex flex-row">
                     <div class="basis-1/3 pr-3">
-                      <div class="mb-4">
+                      <div class="field-group mb-4">
                         <x-input-label for="exp-month" value="Expiry Month"/>
-                        <x-text-input id="exp-month" class="block mt-1 w-full"
-                                      type="text" name="expiryMonth" required/>
+                        <select name="expMonth"
+                                class="select-required w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                          <option value="">Exp. Month</option>
+                          <option value="01">01</option>
+                          <option value="02">02</option>
+                          <option value="03">03</option>
+                          <option value="04">04</option>
+                          <option value="05">05</option>
+                          <option value="06">06</option>
+                          <option value="07">07</option>
+                          <option value="08">08</option>
+                          <option value="09">09</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>
                       </div>
                     </div>
 
                     <div class="basis-1/3 pr-3">
-                      <div class="mb-4">
+                      <div class="field-group mb-4">
                         <x-input-label for="exp-year" value="Expiry Year"/>
-                        <x-text-input id="exp-year" class="block mt-1 w-full"
-                                      type="text" name="expiryYear" required/>
+
+                        <select name="expYear"
+                                class="select-required w-full py-1 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                          <option value="">Exp. Year</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
+                          <option value="2025">2025</option>
+                          <option value="2026">2026</option>
+                          <option value="2027">2028</option>
+                          <option value="2028">2028</option>
+                          <option value="2029">2029</option>
+                          <option value="2030">2030</option>
+                          <option value="2031">2031</option>
+                          <option value="2032">2032</option>
+                        </select>
                       </div>
                     </div>
 
                     <div class="basis-1/3">
-                      <div class="mb-4">
+                      <div class="field-group mb-4">
                         <x-input-label for="cvc" value="CVV"/>
-                        <x-text-input id="cvc" class="block mt-1 w-full"
-                                      type="text" name="cvc" required/>
+                        <x-text-input id="cvc"
+                                      class="field-required block mt-1 w-full"
+                                      data-validation="cvc"
+                                      type="number" name="cvc" required/>
                       </div>
                     </div>
                   </div>
@@ -82,47 +119,51 @@
 
             <div class="form-group pb-4">
               <h2 class="mb-2">Shipping Address</h2>
-              <div class="mb-4">
-                <x-input-label for="company" value="Company"/>
-                <x-text-input id="company" class="block mt-1 w-full"
-                              type="text" name="company" required/>
-              </div>
 
-              <div class="mb-4">
+              <div class="field-group mb-4">
                 <x-input-label for="address" value="Address"/>
-                <x-text-input id="address" class="block mt-1 w-full"
-                              type="text" name="address" required/>
+                <x-text-input id="address" class="field-required block mt-1 w-full"
+                              type="text"
+                              data-validation="required"
+                              name="address" value="{{$hasPaymentMethod['address']}}" required/>
               </div>
 
-              <div class="mb-4">
+              <div class="field-group mb-4">
                 <x-input-label for="appartment" value="Appartment, suit, etc."/>
-                <x-text-input id="appartment" class="block mt-1 w-full"
+                <x-text-input id="appartment"
+                              class="block mt-1 w-full"
                               type="text" name="appartment" required/>
               </div>
 
               <div class="">
                 <div class="flex flex-row">
                   <div class="basis-1/3 pr-3">
-                    <div class="mb-4">
+                    <div class="field-group mb-4">
                       <x-input-label for="city" value="City"/>
-                      <x-text-input id="city" class="block mt-1 w-full"
+                      <x-text-input id="city"
+                                    class="field-required block mt-1 w-full"
+                                    data-validation="required"
                                     type="text" name="city" required/>
                     </div>
                   </div>
 
                   <div class="basis-1/3 pr-3">
-                    <div class="mb-4">
+                    <div class="field-group mb-4">
                       <x-input-label for="State" value="State"/>
-                      <x-text-input id="state" class="block mt-1 w-full"
-                                    type="text" name="state" required/>
+                      <x-text-input id="state" class="field-required block mt-1 w-full"
+                                    type="text"
+                                    data-validation="required"
+                                    name="state" required/>
                     </div>
                   </div>
 
                   <div class="basis-1/3">
-                    <div class="mb-4">
+                    <div class="field-group mb-4">
                       <x-input-label for="post-code" value="Post Code"/>
-                      <x-text-input id="cvv" class="block mt-1 w-full"
-                                    type="text" name="postCode" required/>
+                      <x-text-input id="cvv" class="field-required block mt-1 w-full"
+                                    type="text"
+                                    data-validation="required"
+                                    name="postCode" required/>
                     </div>
                   </div>
                 </div>

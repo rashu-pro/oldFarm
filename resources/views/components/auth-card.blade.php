@@ -17,13 +17,6 @@
               {{ $logo }}
             </div>
 
-            <!-- //=== FORM TITLE -->
-            <div class="text-center mt-3 mb-3">
-              <h4 class="section-title">
-                <span class="section-title-text text-success font-weight-bold">Login</span>
-              </h4>
-            </div>
-
             <!-- //=== LOGIN FORM -->
             <div class="form-wrapper form-login">
               {{ $slot }}
