@@ -1,11 +1,11 @@
 <x-app-layout>
 
   <!-- main wrapper -->
-  <div class="main-wrapper pt-5 pt-sm-0">
+  <div class="main-wrapper pt-0 md:pt-5">
     <div class="container">
       <form id="checkout-form" method="post" action="{{route('add-subscription')}}">
         @csrf
-        <div class="grid sm:grid-cols-2 sm:gap-4 bg-white rounded-lg border border-gray-300">
+        <div class="grid sm:grid-cols-2 sm:gap-4 pt-16 sm:pt-0 bg-white rounded-lg border border-gray-300">
           <div class="form-div px-12 py-8">
             <div class="form-group pb-6">
               <h2 class="mb-2">Contact Information</h2>

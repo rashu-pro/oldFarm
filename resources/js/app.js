@@ -147,19 +147,81 @@ function calculateItemTotal(quantity, itemBox) {
 }
 
 // checkout form validation
-document.querySelector('.btn-checkout-form-js').addEventListener('click', (e)=>{
-  e.preventDefault();
-  card_validation();
+if(document.querySelector('.btn-checkout-form-js')){
+  document.querySelector('.btn-checkout-form-js').addEventListener('click', (e)=>{
+    e.preventDefault();
+    if(document.querySelector('#card-number')){
+      card_validation();
+    }
 
-  document.querySelectorAll('.field-required').forEach(field=>{
+    document.querySelectorAll('.field-required').forEach(field=>{
 
-    let warningMessage = document.createElement('p');
-    warningMessage.classList.add('text-danger');
-    warningMessage.append('The field is required!');
+      let warningMessage = document.createElement('p');
+      warningMessage.classList.add('text-danger');
+      warningMessage.append('The field is required!');
 
-    if(field.getAttribute('data-validation')==='required'){
-      if(!field.value.length>0){
-        field.classList.add('invalid');
+      if(field.getAttribute('data-validation')==='required'){
+        if(!field.value.length>0){
+          field.classList.add('invalid');
+          if(field.closest('.field-group').querySelector('.text-danger')){
+            field.closest('.field-group').querySelector('.text-danger').remove();
+          }
+          field.closest('.field-group').append(warningMessage);
+        }else{
+          if(field.classList.contains('invalid')){
+            field.classList.remove('invalid');
+          }
+
+          if(field.closest('.field-group').querySelector('.text-danger')){
+            field.closest('.field-group').querySelector('.text-danger').remove();
+          }
+        }
+      }
+
+      //email validation
+      if(field.getAttribute('data-validation')==='email'){
+        if(!/\S+@\S+\.\S+/.test(field.value)){
+          if(field.closest('.field-group').querySelector('.text-danger')){
+            field.closest('.field-group').querySelector('.text-danger').remove();
+          }
+          field.closest('.field-group').append(warningMessage);
+        }else{
+          if(field.classList.contains('invalid')){
+            field.classList.remove('invalid');
+          }
+
+          if(field.closest('.field-group').querySelector('.text-danger')){
+            field.closest('.field-group').querySelector('.text-danger').remove();
+          }
+        }
+      }
+
+      //cvc validation
+      if(field.getAttribute('data-validation')==='cvc'){
+        if(!/^\d{3}$/.test(field.value)){
+          field.classList.add('invalid');
+          if(field.closest('.field-group').querySelector('.text-danger')){
+            field.closest('.field-group').querySelector('.text-danger').remove();
+          }
+          field.closest('.field-group').append(warningMessage);
+        }else{
+          if(field.classList.contains('invalid')){
+            field.classList.remove('invalid');
+          }
+
+          if(field.closest('.field-group').querySelector('.text-danger')){
+            field.closest('.field-group').querySelector('.text-danger').remove();
+          }
+        }
+      }
+
+    })
+
+    document.querySelectorAll('.select-required').forEach(field=>{
+      let warningMessage = document.createElement('p');
+      warningMessage.classList.add('text-danger');
+      warningMessage.append('The field is required!');
+      if(field.value===''){
         if(field.closest('.field-group').querySelector('.text-danger')){
           field.closest('.field-group').querySelector('.text-danger').remove();
         }
@@ -173,85 +235,30 @@ document.querySelector('.btn-checkout-form-js').addEventListener('click', (e)=>{
           field.closest('.field-group').querySelector('.text-danger').remove();
         }
       }
-    }
+    })
 
-    //email validation
-    if(field.getAttribute('data-validation')==='email'){
-      if(!/\S+@\S+\.\S+/.test(field.value)){
-        if(field.closest('.field-group').querySelector('.text-danger')){
-          field.closest('.field-group').querySelector('.text-danger').remove();
-        }
-        field.closest('.field-group').append(warningMessage);
-      }else{
-        if(field.classList.contains('invalid')){
-          field.classList.remove('invalid');
-        }
+    if(document.querySelector('.invalid'))
+      document.querySelector('.invalid').focus();
 
-        if(field.closest('.field-group').querySelector('.text-danger')){
-          field.closest('.field-group').querySelector('.text-danger').remove();
-        }
-      }
-    }
+    if(document.querySelector('.invalid')) return;
 
-    //cvc validation
-    if(field.getAttribute('data-validation')==='cvc'){
-      if(!/^\d{3}$/.test(field.value)){
-        field.classList.add('invalid');
-        if(field.closest('.field-group').querySelector('.text-danger')){
-          field.closest('.field-group').querySelector('.text-danger').remove();
-        }
-        field.closest('.field-group').append(warningMessage);
-      }else{
-        if(field.classList.contains('invalid')){
-          field.classList.remove('invalid');
-        }
-
-        if(field.closest('.field-group').querySelector('.text-danger')){
-          field.closest('.field-group').querySelector('.text-danger').remove();
-        }
-      }
-    }
+    document.querySelector('#checkout-form').submit();
 
   })
-
-  document.querySelectorAll('.select-required').forEach(field=>{
-    let warningMessage = document.createElement('p');
-    warningMessage.classList.add('text-danger');
-    warningMessage.append('The field is required!');
-    if(field.value===''){
-      if(field.closest('.field-group').querySelector('.text-danger')){
-        field.closest('.field-group').querySelector('.text-danger').remove();
-      }
-      field.closest('.field-group').append(warningMessage);
-    }else{
-      if(field.classList.contains('invalid')){
-        field.classList.remove('invalid');
-      }
-
-      if(field.closest('.field-group').querySelector('.text-danger')){
-        field.closest('.field-group').querySelector('.text-danger').remove();
-      }
-    }
-  })
-
-  if(document.querySelector('.invalid'))
-    document.querySelector('.invalid').focus();
-
-  if(document.querySelector('.invalid')) return;
-
-  document.querySelector('#checkout-form').submit();
-
-})
+}
 
 // cc validation
 let J = Payment.J;
 let creditCardField = document.querySelector('#card-number');
-creditCardField.addEventListener('keyup', (e)=>{
-  card_validation();
-})
+if(creditCardField){
+  creditCardField.addEventListener('keyup', (e)=>{
+    card_validation();
+  })
+}
+
 
 /**
- * validates vard number
+ * validates card number
  */
 function card_validation() {
   let warningMessage = document.createElement('p');
@@ -286,3 +293,11 @@ function card_validation() {
     creditCardField.closest('.field-group').append(warningMessage);
   }
 }
+
+// height fixer
+let footHeight = document.querySelector('.footer').clientHeight;
+let defaultContentHeight = `calc(100vh - ${footHeight}px`;
+if(document.querySelector('.main-wrapper'))
+  document.querySelector('.main-wrapper').style.minHeight = defaultContentHeight;
+if(document.querySelector('.main-dashboard .image-map img'))
+  document.querySelector('.main-dashboard .image-map img').style.minHeight = defaultContentHeight;

@@ -12,7 +12,7 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-  <link rel="stylesheet" href="/public/build/assets/app.f04be51f.css">
+  <link rel="stylesheet" href="/public/build/assets/app.ff1c9d3d.css">
 
 
 </head>
@@ -56,6 +56,7 @@
   </div>
 </div>
 
-<script src="/public/build/assets/app.8bd8d6b1.js"></script>
+<script src="/public/build/assets/card_validation.js"></script>
+<script src="/public/build/assets/app.30a99c75.js"></script>
 </body>
 </html>

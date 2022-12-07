@@ -12,7 +12,7 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-  <link rel="stylesheet" href="public/build/assets/app.e9526f1b.css">
+  <link rel="stylesheet" href="public/build/assets/app.ff1c9d3d.css">
 </head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-gray-100">

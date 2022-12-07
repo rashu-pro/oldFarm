@@ -62,11 +62,11 @@
                   @endif
                 @endif
 
-                <div class="dashboard-main position-relative">
+                <div class="dashboard-main h-100 position-relative">
                   <div class="image-map position-relative">
                     <h3 class="mb-3 title-dashboard-main">Choose and build your farm</h3>
                     <div class="">
-                      <img src="{{'images/bg-home-v2.min.jpg'}}" usemap="#image-map">
+                      <img src="{{'images/bg-home-v2.min.jpg'}}" usemap="#image-map" class="h-100">
                     </div>
 
                     <map name="image-map">
